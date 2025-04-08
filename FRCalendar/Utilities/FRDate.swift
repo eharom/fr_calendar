@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FRDate {
+struct FRDate: Equatable {
 	var year: Int
 	var month: Int
 	var day: Int

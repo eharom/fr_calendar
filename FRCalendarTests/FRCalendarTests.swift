@@ -48,7 +48,8 @@ final class FRCalendarTests: XCTestCase {
        FRDate(131, 13, 6),
        FRDate(132, 1, 1),
        FRDate(139, 13, 6),
-       FRDate(233, 7, 13)
+       FRDate(233, 7, 13),
+	   FRDate(233, 7, 15)
     ]
 
     let gDates = [
@@ -90,7 +91,8 @@ final class FRCalendarTests: XCTestCase {
         "1923-09-23",
         "1923-09-24",
         "1931-09-23",
-        "2025-04-02"
+        "2025-04-02",
+		"2025-04-04"
     ]
 
 	func testSuccessfulConverstionToGreg() {

@@ -9,18 +9,28 @@ import Foundation
 
 struct Day: Identifiable {
 	let id = UUID().uuidString
-	
-	var isCurrentDate = false
-	let frenchDate: FRDate
-	let gregorianDate: Date
-	
-	init(frenchYear: Int, frenchMonth: Int, frenchDay: Int) {
-		frenchDate = FRDate(frenchYear,frenchMonth, frenchDay)
-		gregorianDate = frenchDate.toGregorian()
+	var date: FRDate {
+		FRDate(year, month, day)
+	}
+	var gregorian: Date {
+		date.toGregorian()
 	}
 	
+	var year: Int
+	var month: Int
+	var day: Int
+
+	
+//	let frenchDate: FRDate
+//	let gregorianDate: Date
+//	
+//	init(frenchYear: Int, frenchMonth: Int, frenchDay: Int) {
+//		frenchDate = FRDate(frenchYear,frenchMonth, frenchDay)
+//		gregorianDate = frenchDate.toGregorian()
+//	}
+	
 	var name: String {
-		switch frenchDate.day % 10 {
+		switch day % 10 {
 		case 1: "Primidí"
 		case 2: "Duodí"
 		case 3: "Tridí"
@@ -31,7 +41,7 @@ struct Day: Identifiable {
 		case 8: "Octidí"
 		case 9: "Nonidí"
 		case 0: "Decadí"
-		default: "\(frenchDate.day)"
+		default: "\(day)"
 		}
 	}
 }

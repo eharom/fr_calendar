@@ -19,18 +19,28 @@
 		48670B582D9DF824008CB09D /* FRDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B542D9DF72F008CB09D /* FRDate.swift */; };
 		48670B592D9DF829008CB09D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B562D9DF739008CB09D /* Date.swift */; };
 		48670B5B2D9DFC93008CB09D /* frcal_leap.txt in Resources */ = {isa = PBXBuildFile; fileRef = 48670B5A2D9DFC93008CB09D /* frcal_leap.txt */; };
-		48670B7E2D9EF0B9008CB09D /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B742D9EF0B9008CB09D /* CalendarViewModel.swift */; };
-		48670B7F2D9EF0B9008CB09D /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B742D9EF0B9008CB09D /* CalendarViewModel.swift */; };
-		48670B802D9EF0B9008CB09D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B752D9EF0B9008CB09D /* CalendarView.swift */; };
-		48670B822D9EF0B9008CB09D /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B772D9EF0B9008CB09D /* MonthView.swift */; };
+		48670B7E2D9EF0B9008CB09D /* YearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B742D9EF0B9008CB09D /* YearViewModel.swift */; };
+		48670B7F2D9EF0B9008CB09D /* YearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B742D9EF0B9008CB09D /* YearViewModel.swift */; };
+		48670B802D9EF0B9008CB09D /* OldYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B752D9EF0B9008CB09D /* OldYearView.swift */; };
+		48670B822D9EF0B9008CB09D /* OldMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B772D9EF0B9008CB09D /* OldMonthView.swift */; };
 		48670B842D9EF0B9008CB09D /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B782D9EF0B9008CB09D /* Month.swift */; };
 		48670B852D9EF0B9008CB09D /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B782D9EF0B9008CB09D /* Month.swift */; };
 		48670B862D9EF0B9008CB09D /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B7A2D9EF0B9008CB09D /* Day.swift */; };
 		48670B872D9EF0B9008CB09D /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B7A2D9EF0B9008CB09D /* Day.swift */; };
-		48670B882D9EF0B9008CB09D /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B7B2D9EF0B9008CB09D /* DayView.swift */; };
-		48670B892D9EF0B9008CB09D /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B7B2D9EF0B9008CB09D /* DayView.swift */; };
+		48670B882D9EF0B9008CB09D /* OldDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B7B2D9EF0B9008CB09D /* OldDayView.swift */; };
+		48670B892D9EF0B9008CB09D /* OldDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B7B2D9EF0B9008CB09D /* OldDayView.swift */; };
 		48670B8D2D9EF0D9008CB09D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B8B2D9EF0D9008CB09D /* View.swift */; };
 		48670B8E2D9EF0D9008CB09D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B8B2D9EF0D9008CB09D /* View.swift */; };
+		4886639C2D9F83CC006B6646 /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4886639B2D9F83C1006B6646 /* YearView.swift */; };
+		4886639D2D9F83CC006B6646 /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4886639B2D9F83C1006B6646 /* YearView.swift */; };
+		4886639F2D9F8424006B6646 /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4886639E2D9F8415006B6646 /* MonthGridView.swift */; };
+		488663A02D9F8424006B6646 /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4886639E2D9F8415006B6646 /* MonthGridView.swift */; };
+		488663A22D9F8535006B6646 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488663A12D9F8531006B6646 /* DayView.swift */; };
+		488663A32D9F8535006B6646 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488663A12D9F8531006B6646 /* DayView.swift */; };
+		488663A52DA06463006B6646 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488663A42DA0645E006B6646 /* MonthView.swift */; };
+		488663A62DA06463006B6646 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488663A42DA0645E006B6646 /* MonthView.swift */; };
+		488663A82DA08A55006B6646 /* MiniMonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488663A72DA08A4C006B6646 /* MiniMonthGridView.swift */; };
+		488663A92DA08A55006B6646 /* MiniMonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488663A72DA08A4C006B6646 /* MiniMonthGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,13 +75,18 @@
 		48670B542D9DF72F008CB09D /* FRDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FRDate.swift; sourceTree = "<group>"; };
 		48670B562D9DF739008CB09D /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		48670B5A2D9DFC93008CB09D /* frcal_leap.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = frcal_leap.txt; sourceTree = "<group>"; };
-		48670B742D9EF0B9008CB09D /* CalendarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
-		48670B752D9EF0B9008CB09D /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		48670B772D9EF0B9008CB09D /* MonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		48670B742D9EF0B9008CB09D /* YearViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearViewModel.swift; sourceTree = "<group>"; };
+		48670B752D9EF0B9008CB09D /* OldYearView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldYearView.swift; sourceTree = "<group>"; };
+		48670B772D9EF0B9008CB09D /* OldMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldMonthView.swift; sourceTree = "<group>"; };
 		48670B782D9EF0B9008CB09D /* Month.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		48670B7A2D9EF0B9008CB09D /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		48670B7B2D9EF0B9008CB09D /* DayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		48670B7B2D9EF0B9008CB09D /* OldDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldDayView.swift; sourceTree = "<group>"; };
 		48670B8B2D9EF0D9008CB09D /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		4886639B2D9F83C1006B6646 /* YearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearView.swift; sourceTree = "<group>"; };
+		4886639E2D9F8415006B6646 /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
+		488663A12D9F8531006B6646 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		488663A42DA0645E006B6646 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		488663A72DA08A4C006B6646 /* MiniMonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMonthGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +146,7 @@
 				48670B2D2D9DF6E8008CB09D /* Assets.xcassets */,
 				48670B2F2D9DF6E8008CB09D /* FRCalendar.entitlements */,
 				48670B5A2D9DFC93008CB09D /* frcal_leap.txt */,
+				488663AA2DA0953A006B6646 /* Antiguos */,
 				48670B302D9DF6E8008CB09D /* Preview Content */,
 			);
 			path = FRCalendar;
@@ -164,8 +180,8 @@
 		48670B722D9EF0B9008CB09D /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				48670B752D9EF0B9008CB09D /* CalendarView.swift */,
-				48670B742D9EF0B9008CB09D /* CalendarViewModel.swift */,
+				4886639B2D9F83C1006B6646 /* YearView.swift */,
+				48670B742D9EF0B9008CB09D /* YearViewModel.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -173,7 +189,9 @@
 		48670B762D9EF0B9008CB09D /* Month */ = {
 			isa = PBXGroup;
 			children = (
-				48670B772D9EF0B9008CB09D /* MonthView.swift */,
+				488663A42DA0645E006B6646 /* MonthView.swift */,
+				4886639E2D9F8415006B6646 /* MonthGridView.swift */,
+				488663A72DA08A4C006B6646 /* MiniMonthGridView.swift */,
 				48670B782D9EF0B9008CB09D /* Month.swift */,
 			);
 			path = Month;
@@ -182,8 +200,8 @@
 		48670B792D9EF0B9008CB09D /* Day */ = {
 			isa = PBXGroup;
 			children = (
+				488663A12D9F8531006B6646 /* DayView.swift */,
 				48670B7A2D9EF0B9008CB09D /* Day.swift */,
-				48670B7B2D9EF0B9008CB09D /* DayView.swift */,
 			);
 			path = Day;
 			sourceTree = "<group>";
@@ -196,6 +214,16 @@
 				48670B542D9DF72F008CB09D /* FRDate.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		488663AA2DA0953A006B6646 /* Antiguos */ = {
+			isa = PBXGroup;
+			children = (
+				48670B752D9EF0B9008CB09D /* OldYearView.swift */,
+				48670B772D9EF0B9008CB09D /* OldMonthView.swift */,
+				48670B7B2D9EF0B9008CB09D /* OldDayView.swift */,
+			);
+			path = Antiguos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,15 +357,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48670B7E2D9EF0B9008CB09D /* CalendarViewModel.swift in Sources */,
-				48670B882D9EF0B9008CB09D /* DayView.swift in Sources */,
-				48670B802D9EF0B9008CB09D /* CalendarView.swift in Sources */,
+				48670B7E2D9EF0B9008CB09D /* YearViewModel.swift in Sources */,
+				488663A62DA06463006B6646 /* MonthView.swift in Sources */,
+				48670B882D9EF0B9008CB09D /* OldDayView.swift in Sources */,
+				48670B802D9EF0B9008CB09D /* OldYearView.swift in Sources */,
+				4886639D2D9F83CC006B6646 /* YearView.swift in Sources */,
+				488663A32D9F8535006B6646 /* DayView.swift in Sources */,
 				48670B842D9EF0B9008CB09D /* Month.swift in Sources */,
 				48670B2C2D9DF6E6008CB09D /* ContentView.swift in Sources */,
-				48670B822D9EF0B9008CB09D /* MonthView.swift in Sources */,
+				48670B822D9EF0B9008CB09D /* OldMonthView.swift in Sources */,
 				48670B552D9DF72F008CB09D /* FRDate.swift in Sources */,
 				48670B2A2D9DF6E6008CB09D /* FRCalendarApp.swift in Sources */,
 				48670B8D2D9EF0D9008CB09D /* View.swift in Sources */,
+				488663A82DA08A55006B6646 /* MiniMonthGridView.swift in Sources */,
+				488663A02D9F8424006B6646 /* MonthGridView.swift in Sources */,
 				48670B572D9DF739008CB09D /* Date.swift in Sources */,
 				48670B862D9EF0B9008CB09D /* Day.swift in Sources */,
 			);
@@ -347,13 +380,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48670B892D9EF0B9008CB09D /* DayView.swift in Sources */,
+				48670B892D9EF0B9008CB09D /* OldDayView.swift in Sources */,
 				48670B3C2D9DF6E8008CB09D /* FRCalendarTests.swift in Sources */,
 				48670B592D9DF829008CB09D /* Date.swift in Sources */,
+				4886639F2D9F8424006B6646 /* MonthGridView.swift in Sources */,
+				488663A52DA06463006B6646 /* MonthView.swift in Sources */,
+				488663A22D9F8535006B6646 /* DayView.swift in Sources */,
+				4886639C2D9F83CC006B6646 /* YearView.swift in Sources */,
+				488663A92DA08A55006B6646 /* MiniMonthGridView.swift in Sources */,
 				48670B852D9EF0B9008CB09D /* Month.swift in Sources */,
 				48670B872D9EF0B9008CB09D /* Day.swift in Sources */,
 				48670B582D9DF824008CB09D /* FRDate.swift in Sources */,
-				48670B7F2D9EF0B9008CB09D /* CalendarViewModel.swift in Sources */,
+				48670B7F2D9EF0B9008CB09D /* YearViewModel.swift in Sources */,
 				48670B8E2D9EF0D9008CB09D /* View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +548,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = RepubliCal;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -518,8 +558,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -548,6 +588,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = RepubliCal;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -556,8 +598,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

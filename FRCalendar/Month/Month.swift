@@ -15,7 +15,6 @@ struct Month: Identifiable {
 	var numOfDays: Int
 	var days: [Day] = []
 	var shortName: String { String(name.prefix(4)) }
-	var iscurrentMonth = false
 	
 	init(index: Int, numDays: Int, year: Int) {
 		self.year = year
@@ -23,7 +22,7 @@ struct Month: Identifiable {
 		var array = Array<Day>()
 		numOfDays = numDays
 		for dayIndex in 1..<numOfDays + 1 {
-			array.append(Day(frenchYear: year, frenchMonth: monthIndex, frenchDay: dayIndex))
+			array.append(Day(year: year, month: monthIndex, day: dayIndex))
 		}
 		days = array
 	}
@@ -42,6 +41,7 @@ struct Month: Identifiable {
 		case 10: "Mesidor"
 		case 11: "Termidor"
 		case 12: "Fructidor"
+		case 13: "Sansculottides"
 		default: "\(monthIndex)"
 		}
 	}

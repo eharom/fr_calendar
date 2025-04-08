@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CalendarView: View {
-	@ObservedObject var viewModel = CalendarViewModel()
+struct YearView: View {
+	@ObservedObject var viewModel = ViewModel()
 	var body: some View {
 		VStack(spacing: 0.0) {
 			CalendarHeaderView(isMonthView: $viewModel.isMonthView)
@@ -16,7 +16,9 @@ struct CalendarView: View {
 				yearView
 //				extraDaysCards
 			}
+			.scrollTargetBehavior(.viewAligned)
 			.frame(maxHeight: viewModel.isMonthView ? 178.0 : .infinity)
+//			.if(viewModel.isMonthView, transform:         .scrollTargetBehavior(.viewAligned))
 			
 			GrayDivider()
 			
@@ -26,7 +28,6 @@ struct CalendarView: View {
 						VStack {
 							Text("FRC: \(FRDate().string)")
 							Text("Gregorian: \(Date().string)")
-
 						}
 						.bold()
 						.font(.title2)
@@ -62,6 +63,7 @@ struct CalendarView: View {
 					MonthView(month: month, isMonthView: $viewModel.isMonthView)
 				}
 			}
+			.scrollTargetLayout()
 			.padding(.horizontal, viewModel.isMonthView ? 0.0 : 10.0)
 		}
 	}
@@ -176,6 +178,6 @@ struct GrayDivider: View {
 }
 
 #Preview {
-	CalendarView()
+	YearView()
 }
 

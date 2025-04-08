@@ -1,66 +1,65 @@
 //
-//  DayView.swift
-//  Calendar
+//  NewDayView.swift
+//  FRCalendar
 //
-//  Created by Enrique Haro Márquez on 2025-03-22.
+//  Created by Enrique Haro Márquez on 2025-04-03.
 //
 
 import SwiftUI
 
-struct DayView: View {
+struct DayCalendarView: View {
+	@ObservedObject var viewModel: ViewModel
 	let day: Day
-	@Binding var selectedDay: Int
-	@Binding var isMonthView: Bool
+	
+	var circleColor: Color {
+		if viewModel.selectedDate.month == day.date.month && viewModel.selectedDate.day == day.date.day {
+			if viewModel.currentDate == day.date {
+				return .red
+			} else {
+				return Color(white: 0.9)
+			}
+		}
+		return .clear
+	}
+	var textColor: Color {
+		if viewModel.currentDate.month == day.date.month && viewModel.selectedDate.month == day.date.month && viewModel.currentDate.day == day.date.day && viewModel.selectedDate.day == day.date.day {
+			return Color(white: 0.9)
+		} else if viewModel.currentDate.month == day.date.month && viewModel.currentDate.day == day.date.day {
+			return .red
+		} else if viewModel.selectedDate.month == day.date.month && viewModel.selectedDate.day == day.date.day {
+			return .black
+		} else if day.day % 5 == 0 {
+			return Color(white: 0.5)
+		}
+		return Color(white: 0.9)
+	}
 	
 	var body: some View {
-		ZStack {
-			Rectangle()
-				.aspectRatio(isMonthView ? 2/3 : 1/1, contentMode: .fit)
-			VStack(spacing: 0.0) {
-				if isMonthView {
-					GrayDivider()
-				}
-				ZStack {
-					Circle()
-						.foregroundStyle(selectedDay == day.frenchDate.day ? .white : .black)
-					Text("\(day.frenchDate.day)")
-						.foregroundStyle(textColor)
-						.font(fontSize)
-						.bold()
-				}
-				.padding(.top, isMonthView ? 2.0 : 0.0)
-				
-				if isMonthView {
+		VStack(spacing: 0.0) {
+			GrayDivider()
+			ZStack {
+				Rectangle()
+					.aspectRatio(2/3, contentMode: .fit)
+					.foregroundStyle(.black)
+				VStack {
+					ZStack {
+						Circle()
+							.foregroundStyle(circleColor)
+						Text("\(day.day)")
+							.foregroundStyle(textColor)
+							.font(.system(size: 20.0))
+							.bold()
+					}
 					Spacer()
 				}
+				.padding(.top, 2.0)
 			}
 		}
-		.if(isMonthView) {
-			$0.onTapGesture() {
-				selectedDay = day.frenchDate.day
-//				print("\(day.name) \(day.frenchDate.date)")
-				print(day.gregorianDate)
-				print(Date.now)
-			}
-		}
-	}
-	
-	var textColor: Color {
-		if !isMonthView {
-			return .white
-		}
-		if day.frenchDate.day == selectedDay /*&& !day.isCurrentDate*/{
-			return .black
-		} else {
-			return .white
-		}
-	}
-	
-	var fontSize: Font {
-		isMonthView ? .title3 : .footnote
 	}
 }
 
+
+
 #Preview {
-	CalendarView()
+	ContentView()
 }
