@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4847148D2DA6C8CC0062E38C /* rural_calendar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4847148C2DA6C8CC0062E38C /* rural_calendar.txt */; };
 		48670B2A2D9DF6E6008CB09D /* FRCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B292D9DF6E6008CB09D /* FRCalendarApp.swift */; };
 		48670B2C2D9DF6E6008CB09D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B2B2D9DF6E6008CB09D /* ContentView.swift */; };
 		48670B2E2D9DF6E8008CB09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48670B2D2D9DF6E8008CB09D /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4847148C2DA6C8CC0062E38C /* rural_calendar.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = rural_calendar.txt; sourceTree = "<group>"; };
 		48670B262D9DF6E6008CB09D /* FRCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FRCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48670B292D9DF6E6008CB09D /* FRCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCalendarApp.swift; sourceTree = "<group>"; };
 		48670B2B2D9DF6E6008CB09D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				48670B2D2D9DF6E8008CB09D /* Assets.xcassets */,
 				48670B2F2D9DF6E8008CB09D /* FRCalendar.entitlements */,
 				48670B5A2D9DFC93008CB09D /* frcal_leap.txt */,
+				4847148C2DA6C8CC0062E38C /* rural_calendar.txt */,
 				488663AA2DA0953A006B6646 /* Antiguos */,
 				48670B302D9DF6E8008CB09D /* Preview Content */,
 			);
@@ -333,6 +336,7 @@
 				48670B322D9DF6E8008CB09D /* Preview Assets.xcassets in Resources */,
 				48670B2E2D9DF6E8008CB09D /* Assets.xcassets in Resources */,
 				48670B5B2D9DFC93008CB09D /* frcal_leap.txt in Resources */,
+				4847148D2DA6C8CC0062E38C /* rural_calendar.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

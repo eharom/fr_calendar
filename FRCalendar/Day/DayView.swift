@@ -24,12 +24,12 @@ struct DayCalendarView: View {
 	var textColor: Color {
 		if viewModel.currentDate.month == day.date.month && viewModel.selectedDate.month == day.date.month && viewModel.currentDate.day == day.date.day && viewModel.selectedDate.day == day.date.day {
 			return Color(white: 0.9)
-		} else if viewModel.currentDate.month == day.date.month && viewModel.currentDate.day == day.date.day {
+		} else if viewModel.currentDate == viewModel.selectedDate{
 			return .red
 		} else if viewModel.selectedDate.month == day.date.month && viewModel.selectedDate.day == day.date.day {
 			return .black
-		} else if day.day % 5 == 0 {
-			return Color(white: 0.5)
+		} else if day.day % 5 == 0 && viewModel.selectedDate.month != 13{
+			return Color(white: 0.55)
 		}
 		return Color(white: 0.9)
 	}
@@ -45,6 +45,7 @@ struct DayCalendarView: View {
 					ZStack {
 						Circle()
 							.foregroundStyle(circleColor)
+							.frame(maxWidth: viewModel.selectedDate.month == 13 ? 40 : nil, maxHeight: viewModel.selectedDate.month == 13 ? 40 : nil)
 						Text("\(day.day)")
 							.foregroundStyle(textColor)
 							.font(.system(size: 20.0))

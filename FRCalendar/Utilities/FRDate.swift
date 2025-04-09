@@ -12,6 +12,8 @@ struct FRDate: Equatable {
 	var month: Int
 	var day: Int
 	
+	var dayOfYear: Int { (30 * (month - 1)) + day }
+	
     var string: String { "\(year.padded)-\(month.padded)-\(day.padded)" }
 
 	var gregorian: Date {
@@ -60,12 +62,18 @@ class Initializer {
 	static let shared = Initializer()
 	
 	var leapYears: [Int] = []
+	var celebrations: [String] = []
 	
 	private init() {
 		if let url = Bundle.main.url(forResource: "frcal_leap", withExtension: "txt"),
 		   let data = try? Data(contentsOf: url),
 		   let string = String(data: data, encoding: .utf8) {
 			self.leapYears = string.components(separatedBy: "\n").compactMap { Int($0) }
+		}
+		if let url = Bundle.main.url(forResource: "rural_calendar", withExtension: "txt"),
+		   let data = try? Data(contentsOf: url),
+		   let string = String(data: data, encoding: .utf8) {
+			self.celebrations = string.components(separatedBy: "\n").compactMap { $0 }
 		}
 	}
 }

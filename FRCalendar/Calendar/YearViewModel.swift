@@ -10,8 +10,9 @@ import SwiftUI
 class ViewModel: ObservableObject {
 	@Published var currentDate = FRDate()
 	@Published var selectedDate = FRDate()
-	
-	var years: [Int] = []
+	var isLeapYear: Bool {
+		Initializer.shared.leapYears.contains(selectedDate.year)
+	}
 	
 	var year = FRDate().year
 	var month = FRDate().month
@@ -25,16 +26,14 @@ class ViewModel: ObservableObject {
 		for i in 1..<14 {
 			if i != 13 {
 				array.append(Month(index: i, numDays: 30, year: year))
+//			} else if !isLeapYear {
+//				array.append(Month(index: i, numDays: 6, year: year))
 			} else {
-				array.append(Month(index: i, numDays: 5, year: year))
+				array.append(Month(index: i, numDays: 6, year: year))
 			}
 		}
 		self.months = array
 		assert(months.count == 13)
-		
-		for i in 1...400 {
-			years.append(i)
-		}
 	}
 }
 

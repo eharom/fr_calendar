@@ -9,28 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
 	@ObservedObject var viewModel = ViewModel()
+	var h = UIScreen.main.bounds.height / 2.5
 	
 	var body: some View {
+		@State var yPos = h + (h * 1.8)
+
 		VStack(spacing: 0.0) {
 			HeaderView(viewModel: viewModel)
 			
 			if !viewModel.isMonthView {
-				ZStack {
-					Rectangle()
-						.foregroundStyle(.black)
+//				ZStack {
 					YearCalendarView(viewModel: viewModel)
-				}
-				.gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
-										.onEnded({ value in
-											if value.translation.height < 0.0 {
-												viewModel.selectedDate.year += 1
-											}
-
-											if value.translation.height > 0.0 {
-												viewModel.selectedDate.year -= 1
-											}
-										}))
-				
+//						YearCalendarView(viewModel: viewModel)
+//							.border(.red)
+//							.position(x: UIScreen.main.bounds.width / 2.0, y: yPos)
+//					}
+//					.gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
+//											.onEnded({ value in
+//												if value.translation.height < 0.0 {
+//													viewModel.selectedDate.year += 1
+//													withAnimation(.linear(duration: 1.0)) {
+//														yPos = h
+//													}
+//												}
+//
+//												if value.translation.height > 0.0 {
+//													viewModel.selectedDate.year -= 1
+//												}
+//											}))
+//
 			} else {
 				MonthCalendarView(viewModel: viewModel)
 			}

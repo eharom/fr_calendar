@@ -10,6 +10,14 @@ import SwiftUI
 struct MonthCalendarView: View {
 	@ObservedObject var viewModel: ViewModel
 	var daysOfTheWeek = ["P", "D", "T", "C", "Q", "S", "S", "O", "N", "D"]
+	var numOfDays: Int {
+		if viewModel.selectedDate.month == 13 && viewModel.isLeapYear {
+			return 6
+		} else if viewModel.selectedDate.month == 13 {
+			return 5
+		}
+		return 10
+	}
 
 	var body: some View {
 		VStack(spacing: 0.0) {
@@ -20,10 +28,14 @@ struct MonthCalendarView: View {
 						.bold()
 						.foregroundColor(Color(white: 0.9))
 					Spacer()
+					Text(viewModel.selectedDate.toGregorian().string)
+						.bold()
+						.foregroundColor(Color(white: 0.5))
+						.font(.system(size: 20))
 				}
 				.padding(.leading, 5.0)
 				LazyVGrid(columns: columns, spacing: 0.0) {
-					ForEach(0..<daysOfTheWeek.count, id: \.self) { i in
+					ForEach(0..<numOfDays, id: \.self) { i in
 						Text(daysOfTheWeek[i])
 							.font(.footnote)
 					}
@@ -34,36 +46,26 @@ struct MonthCalendarView: View {
 			.background(Color(white: 0.1))
 			GrayDivider()
 			
-			VStack {
-				MonthGridView(viewModel: viewModel, month: viewModel.months[viewModel.selectedDate.month - 1], numcolumns: 10)
+			MonthGridView(viewModel: viewModel, month: viewModel.months[viewModel.selectedDate.month - 1], numcolumns: numOfDays)
+				.padding(.horizontal, 10.0)
+
+			GrayDivider()
+			HStack {
+				Text("\(Initializer.shared.celebrations[viewModel.selectedDate.dayOfYear - 1])")
+					.font(.title2)
+					.bold()
+					.foregroundStyle(Color(white: 0.4))
+					.padding(.top, 10.0)
 				Spacer()
 			}
-			.padding(.horizontal, 10.0)
-//				.gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
-//									.onEnded({ value in
-//										if value.translation.height < 0.0 {
-//											if viewModel.selectedDate.month == 13{
-//												viewModel.selectedDate.month == 1
-//												viewModel.selectedDate.year += 1
-//											} else {
-//												viewModel.selectedDate.month += 1
-//											}
-//										}
-//
-//										if value.translation.height > 0.0 {
-//											if viewModel.selectedDate.month == 0{
-//												viewModel.selectedDate.month == 12
-//												viewModel.selectedDate.year -= 1
-//											} else {
-//												viewModel.selectedDate.month -= 1
-//											}
-//										}
-//									}))
+			.padding(.horizontal, 15.0)
+			Spacer()
+
 		}
 	}
 	
 	var columns: [GridItem] {
-			Array(repeating: GridItem(.flexible(), spacing:0.0), count: 10)
+			Array(repeating: GridItem(.flexible(), spacing:0.0), count: numOfDays)
 	}
 }
 
