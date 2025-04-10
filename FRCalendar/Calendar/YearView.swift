@@ -11,65 +11,77 @@ struct YearCalendarView: View {
 	@ObservedObject var viewModel: ViewModel
 
 	var body: some View {
-		VStack(spacing: 0.0) {
-			HStack { Text(/*Converter.romanNumeralFor(viewModel.selectedDate.year)*/"\(viewModel.selectedDate.year)")
-					.bold()
-					.font(.largeTitle)
-					.foregroundStyle(viewModel.selectedDate.year == viewModel.currentDate.year ? .red : Color(white: 0.9))
-				Spacer()
-			}
-			.padding(.vertical, 5.0)
-			
-			GrayDivider().padding(.bottom, 10.0)
-			
-			LazyVGrid(columns: columns, spacing: 15.0) {
-				ForEach(1..<13) { i in
-					MiniMonthView(viewModel: viewModel, monthIndex: i)
-						.onTapGesture {
-							viewModel.isMonthView = true
-							viewModel.selectedDate.month = i
-							viewModel.selectedDate.day = 1
-						}
+		ZStack {
+			Rectangle()
+				.foregroundStyle(.black)
+			VStack(spacing: 0.0) {
+				
+				//			Year sign
+				HStack { Text(/*Converter.romanNumeralFor(viewModel.selectedDate.year)*/"\(viewModel.selectedDate.year)")
+						.bold()
+						.font(.largeTitle)
+						.foregroundStyle(viewModel.selectedDate.year == viewModel.currentDate.year ? .red : Color(white: 0.9))
+					Spacer()
 				}
-			}
-			
-			Spacer()
-			
-			HStack(spacing: 0.0) {
-				Text(viewModel.months[12].name)
-					.lineLimit(1)
-					.foregroundStyle(viewModel.currentDate.month == viewModel.months[12].monthIndex && viewModel.currentDate.year == viewModel.selectedDate.year ? .red : Color(white: 0.9))
-					.font(.title3)
-					.bold()
-				Spacer()
-
-				var extraDays: Int {
-					if Initializer.shared.leapYears.contains(viewModel.selectedDate.year) {
-						return 7
+				.padding(.vertical, 5.0)
+				
+				GrayDivider().padding(.bottom, 10.0)
+				
+				//			Mini month cards for months 1 - 12
+				LazyVGrid(columns: columns, spacing: 15.0) {
+					ForEach(1..<13) { i in
+						MiniMonthView(viewModel: viewModel, monthIndex: i)
+							.onTapGesture {
+								viewModel.isMonthView = true
+								viewModel.selectedDate.month = i
+								viewModel.selectedDate.day = 1
+							}
 					}
-					return 6
 				}
 				
-				ForEach(1..<extraDays, id: \.self) { day in
-					Spacer()
-					ZStack {
-						Circle()
-							.foregroundStyle(viewModel.currentDate == FRDate(viewModel.selectedDate.year, 13, day) ? .red : .clear)
-						Text("\(day)")
-							.foregroundStyle(Color(white: 0.9))
-							.font(.system(size: 10))
+				Spacer()
+				
+				//			Mini month card
+				ZStack {
+					Rectangle()
+						.foregroundStyle(.black)
+					HStack(spacing: 0.0) {
+						Text(viewModel.months[12].name)
+							.foregroundStyle(viewModel.currentDate.month == viewModel.months[12].monthIndex && viewModel.currentDate.year == viewModel.selectedDate.year ? .red : Color(white: 0.9))
+							.font(.title3)
+							.bold()
+						Spacer()
+						
+						var extraDays: Int {
+							if Initializer.shared.leapYears.contains(viewModel.selectedDate.year) {
+								return 7
+							}
+							return 6
+						}
+						
+						ForEach(1..<extraDays, id: \.self) { day in
+							Spacer()
+							ZStack {
+								Circle()
+									.foregroundStyle(viewModel.currentDate == FRDate(viewModel.selectedDate.year, 13, day) ? .red : .clear)
+								Text("\(day)")
+									.foregroundStyle(Color(white: 0.9))
+									.font(.system(size: 10))
+							}
+							.frame(maxHeight: 25.0)
+						}
 					}
-					.frame(maxHeight: 25.0)
 				}
-//				MonthGridView(viewModel: viewModel, month: viewModel.months[12], numcolumns: 5)
-//					.onTapGesture {
-//						viewModel.isMonthView = true
-//						viewModel.selectedDate.day = 1
-//					}
+				.onTapGesture {
+					viewModel.isMonthView = true
+					viewModel.selectedDate.month = 13
+					viewModel.selectedDate.day = 1
+				}
+				
+				Spacer()
 			}
-			Spacer()
+			.padding(.horizontal, 10.0)
 		}
-		.padding(.horizontal, 10.0)
 	}
 	
 	var columns: [GridItem] {

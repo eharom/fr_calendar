@@ -8,16 +8,13 @@
 import Foundation
 
 struct FRDate: Equatable {
-	var year: Int
-	var month: Int
-	var day: Int
+	var year: Int = 1
+	var month: Int = 1
+	var day: Int = 1
+	
+	var dayOfYear: Int { (30 * (month - 1)) + day }
 	
     var string: String { "\(year.padded)-\(month.padded)-\(day.padded)" }
-
-	var gregorian: Date {
-		let leapYears = Initializer.shared.leapYears.filter { $0 < year }.count
-		return Calendar(identifier: .iso8601).date(byAdding: DateComponents(calendar: Calendar(identifier: .iso8601), day: ((year - 1)*365 + (month - 1)*30 + (day - 1) + leapYears)), to: Date.referenceDate!)!
-	}
 	
 	init(_ y: Int, _ m: Int, _ d: Int) {
 		self.year = y
@@ -25,13 +22,11 @@ struct FRDate: Equatable {
 		self.day = d
 	}
 	
-	init() {		
-		let today = Date().toRepublican()
-		self.year = today.year
-		self.month = today.month
-		self.day = today.day
+	init() {
+		guard let gDate = Date.getCurrentDate() else { return }
+		let frDate = gDate.toRepublican()
+		self = frDate
 	}
-
 	
 	func toGregorian() -> Date {
 		let leapYears = Initializer.shared.leapYears.filter { $0 < year }.count
@@ -60,12 +55,18 @@ class Initializer {
 	static let shared = Initializer()
 	
 	var leapYears: [Int] = []
+	var celebrations: [String] = []
 	
 	private init() {
 		if let url = Bundle.main.url(forResource: "frcal_leap", withExtension: "txt"),
 		   let data = try? Data(contentsOf: url),
 		   let string = String(data: data, encoding: .utf8) {
 			self.leapYears = string.components(separatedBy: "\n").compactMap { Int($0) }
+		}
+		if let url = Bundle.main.url(forResource: "rural_calendar", withExtension: "txt"),
+		   let data = try? Data(contentsOf: url),
+		   let string = String(data: data, encoding: .utf8) {
+			self.celebrations = string.components(separatedBy: "\n").compactMap { $0 }
 		}
 	}
 }

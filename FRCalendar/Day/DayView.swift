@@ -12,26 +12,28 @@ struct DayCalendarView: View {
 	let day: Day
 	
 	var circleColor: Color {
-		if viewModel.selectedDate.month == day.date.month && viewModel.selectedDate.day == day.date.day {
-			if viewModel.currentDate == day.date {
-				return .red
-			} else {
-				return Color(white: 0.9)
-			}
+		guard viewModel.dayAndMonthAreEqualToSelectedDay(day) else {
+			return .clear
 		}
-		return .clear
-	}
-	var textColor: Color {
-		if viewModel.currentDate.month == day.date.month && viewModel.selectedDate.month == day.date.month && viewModel.currentDate.day == day.date.day && viewModel.selectedDate.day == day.date.day {
-			return Color(white: 0.9)
-		} else if viewModel.currentDate.month == day.date.month && viewModel.currentDate.day == day.date.day {
+		if viewModel.selectedYearIsCurrentYear() && viewModel.dayAndMonthAreEqualToCurrentDay(day) {
 			return .red
-		} else if viewModel.selectedDate.month == day.date.month && viewModel.selectedDate.day == day.date.day {
-			return .black
-		} else if day.day % 5 == 0 {
-			return Color(white: 0.5)
+		} else {
+			return Color(white: 0.9)
 		}
-		return Color(white: 0.9)
+	}
+	
+	var textColor: Color {
+		guard viewModel.dayAndMonthAreEqualToSelectedDay(day) else {
+			if viewModel.selectedYearIsCurrentYear() && viewModel.dayAndMonthAreEqualToCurrentDay(day) {
+				return .red
+			}
+			return Color(white: day.date.day % 5 == 0 ? 0.55 : 0.9)
+		}
+		if viewModel.selectedYearIsCurrentYear() && viewModel.dayAndMonthAreEqualToCurrentDay(day) {
+			return Color(white: 0.9)
+		} else {
+			return .black
+		}
 	}
 	
 	var body: some View {
@@ -45,6 +47,7 @@ struct DayCalendarView: View {
 					ZStack {
 						Circle()
 							.foregroundStyle(circleColor)
+							.frame(maxWidth: viewModel.selectedDate.month == 13 ? 40 : nil, maxHeight: viewModel.selectedDate.month == 13 ? 40 : nil)
 						Text("\(day.day)")
 							.foregroundStyle(textColor)
 							.font(.system(size: 20.0))

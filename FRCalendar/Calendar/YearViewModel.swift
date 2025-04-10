@@ -10,31 +10,44 @@ import SwiftUI
 class ViewModel: ObservableObject {
 	@Published var currentDate = FRDate()
 	@Published var selectedDate = FRDate()
-	
-	var years: [Int] = []
-	
-	var year = FRDate().year
-	var month = FRDate().month
-	var day = FRDate().day
-	
 	@Published var months: [Month] = []
 	@Published var isMonthView = false
+
+	var isLeapYear: Bool {
+		Initializer.shared.leapYears.contains(selectedDate.year)
+	}
 	
 	init() {
 		var array = Array<Month>()
 		for i in 1..<14 {
 			if i != 13 {
-				array.append(Month(index: i, numDays: 30, year: year))
+				array.append(Month(index: i, numDays: 30, year: selectedDate.year))
 			} else {
-				array.append(Month(index: i, numDays: 5, year: year))
+				array.append(Month(index: i, numDays: 6, year: selectedDate.year))
 			}
 		}
 		self.months = array
 		assert(months.count == 13)
 		
-		for i in 1...400 {
-			years.append(i)
+		Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { _ in
+			guard let gDate = Date.getCurrentDate() else { return }
+			let frDate = gDate.toRepublican()
+			self.currentDate = frDate
 		}
+	}
+	
+	func dayAndMonthAreEqualToCurrentDay(_ day: Day) -> Bool {
+		day.date.day == currentDate.day &&
+		day.date.month == currentDate.month
+	}
+	
+	func dayAndMonthAreEqualToSelectedDay(_ day: Day) -> Bool {
+		day.date.day == selectedDate.day &&
+		day.date.month == selectedDate.month
+	}
+	
+	func selectedYearIsCurrentYear() -> Bool {
+		selectedDate.year == currentDate.year
 	}
 }
 
