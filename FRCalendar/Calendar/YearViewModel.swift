@@ -26,14 +26,26 @@ class ViewModel: ObservableObject {
 		for i in 1..<14 {
 			if i != 13 {
 				array.append(Month(index: i, numDays: 30, year: year))
-//			} else if !isLeapYear {
-//				array.append(Month(index: i, numDays: 6, year: year))
 			} else {
 				array.append(Month(index: i, numDays: 6, year: year))
 			}
 		}
 		self.months = array
 		assert(months.count == 13)
+	}
+	
+	func dayAndMonthAreEqualToCurrentDay(_ day: Day) -> Bool {
+		day.date.day == currentDate.day &&
+		day.date.month == currentDate.month
+	}
+	
+	func dayAndMonthAreEqualToSelectedDay(_ day: Day) -> Bool {
+		day.date.day == selectedDate.day &&
+		day.date.month == selectedDate.month
+	}
+	
+	func selectedYearIsCurrentYear() -> Bool {
+		selectedDate.year == currentDate.year
 	}
 }
 

@@ -62,6 +62,6 @@ struct DayView: View {
 	}
 }
 
-#Preview {
-	YearView()
-}
+//#Preview {
+//	YearView()
+//}

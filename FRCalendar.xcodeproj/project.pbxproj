@@ -32,6 +32,7 @@
 		48670B892D9EF0B9008CB09D /* OldDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B7B2D9EF0B9008CB09D /* OldDayView.swift */; };
 		48670B8D2D9EF0D9008CB09D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B8B2D9EF0D9008CB09D /* View.swift */; };
 		48670B8E2D9EF0D9008CB09D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B8B2D9EF0D9008CB09D /* View.swift */; };
+		486E77592DA764FA0094FE9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B2B2D9DF6E6008CB09D /* ContentView.swift */; };
 		4886639C2D9F83CC006B6646 /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4886639B2D9F83C1006B6646 /* YearView.swift */; };
 		4886639D2D9F83CC006B6646 /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4886639B2D9F83C1006B6646 /* YearView.swift */; };
 		4886639F2D9F8424006B6646 /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4886639E2D9F8415006B6646 /* MonthGridView.swift */; };
@@ -386,6 +387,7 @@
 			files = (
 				48670B892D9EF0B9008CB09D /* OldDayView.swift in Sources */,
 				48670B3C2D9DF6E8008CB09D /* FRCalendarTests.swift in Sources */,
+				486E77592DA764FA0094FE9E /* ContentView.swift in Sources */,
 				48670B592D9DF829008CB09D /* Date.swift in Sources */,
 				4886639F2D9F8424006B6646 /* MonthGridView.swift in Sources */,
 				488663A52DA06463006B6646 /* MonthView.swift in Sources */,

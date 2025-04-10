@@ -168,15 +168,6 @@ struct CalendarFooterView: View {
 	}
 }
 
-struct GrayDivider: View {
-	var body: some View {
-		Rectangle()
-			.frame(maxWidth: .infinity)
-			.frame(height: 1.0)
-			.foregroundStyle(Color(white: 0.2))
-	}
-}
-
 #Preview {
 	YearView()
 }
