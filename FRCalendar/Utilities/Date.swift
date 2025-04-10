@@ -14,6 +14,13 @@ extension Date {
 		String("\(self)".prefix(10))
 	}
 	
+	static func getCurrentDate() -> Date? {
+		let components = Calendar.current.dateComponents(in: TimeZone.current, from: Date())
+		guard let year = components.year, let month = components.month, let day = components.day else { return nil }
+		let dateString = "\(year)-\(month)-\(day)"
+		return Date.from(string: dateString)
+	}
+	
 	func toRepublican() -> FRDate {
 		let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: self)
 		let rangeStart = dateComponents.year! - 1792
