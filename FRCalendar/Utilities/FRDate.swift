@@ -31,7 +31,7 @@ struct FRDate: Equatable {
 		case 7: "Septidi"
 		case 8: "Octidi"
 		case 9: "Nonidi"
-		case 10: "Décadi"
+		case 0: "Décadi"
 		default: "\(day)"
 		}
 	}

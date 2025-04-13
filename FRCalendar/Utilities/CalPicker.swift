@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct CalPicker: View {
-	@Binding var type: CalType
-	@Binding var year: Int 
+	@Binding var type: CalPicker.CalType
+//	@Binding var result: String
+
+	@Binding var year: Int
 	@Binding var month: Int
 	@Binding var day: Int
 	
-	let frYearRange = 1..<335
-	let gYearRange = 1792..<2127
-		
-	let frMonthRange = 1..<14
+	@State var yearRange: Range<Int> = 1..<335
+	@State var monthRange: Range<Int> = 1..<14
+	@State var dayRange: Range<Int> = 1..<31
 	
 	func monthNameForIndex(_ index: Int) -> String {
 		if type == .republican {
@@ -54,82 +55,154 @@ struct CalPicker: View {
 			}
 		}
 	}
-	
-//	init(type: CalType, year: Int, month: Int, day: Int) {
-//		self.type = type
-//		self.year = year
-//		self.month = month
-//		self.day = day
-//	}
-	
+
 	var body: some View {
 		HStack(spacing: 0.0) {
 			Picker(selection: $year, label: Text("Picker"), content: {
-				ForEach(type == .republican ? frYearRange : gYearRange, id: \.self) { yIndex in
+				ForEach(yearRange, id: \.self) { yIndex in
 					Text(verbatim: "\(yIndex)").tag(yIndex)
 				}
 			})
 			.padding(.trailing, -15.0)
 			.pickerStyle(WheelPickerStyle())
 			.clipped()
+			.onChange(of: year) {
+				updateRangesAndDateComponents()
+			}
 			
 			Picker(selection: $month, label: Text("Picker"), content: {
-				ForEach(type == .republican ? frMonthRange : getGregorianMonthRange(for: year), id: \.self) { mIndex in
+				ForEach(monthRange, id: \.self) { mIndex in
 					Text("\(monthNameForIndex(mIndex))")
 				}
 			})
 			.padding(.horizontal, -15.0)
 			.pickerStyle(WheelPickerStyle())
 			.clipped()
+			.onChange(of: month) {
+				updateRangesAndDateComponents()
+			}
 			
 			Picker(selection: $day, label: Text("Picker"), content: {
-				ForEach(getDayRange(for: year, month), id: \.self) { dIndex in
+				ForEach(dayRange, id: \.self) { dIndex in
 					Text("\(dIndex)").tag(dIndex)
 				}
 			})
 			.padding(.leading, -15.0)
 			.pickerStyle(WheelPickerStyle())
 			.clipped()
-		}
-	}
-	
-	func getGregorianMonthRange(for year: Int) -> Range<Int> {
-		if year == 1792 {
-			return 9..<13
-		} else if year == 2126 {
-			return 1..<10
-		}
-		return 1..<13
-	}
-	
-	func getDayRange(for year: Int, _ month: Int) -> Range<Int> {
-		if type == .republican {
-			guard month == 13 else { return 1..<31}
-			if Initializer.shared.leapYears.contains(year) {
-				return 1..<7
+			.onChange(of: day) {
+				updateRangesAndDateComponents()
 			}
-			return 1..<6
+		}
+		.onChange(of: type) {
+			updateRangesAndDateComponents()
+			updateCalendar()
+		}
+	}
+		
+	func updateRangesAndDateComponents() {
+		updateYearRange()
+		updateMonthRange(for: year)
+		updateDayRange(for: year, month)
+		updateMonth()
+		updateDay()
+//		self.result = "\(year)-\(month)-\(day)"
+		inspectPicker()
+	}
+	
+	func inspectPicker() {
+		print("PICKER: \(type.name), \(year), \(month), \(day)\t\(monthRange), \(dayRange)")
+	}
+
+	func updateMonth() {
+		if month < monthRange.lowerBound {
+			month = monthRange.lowerBound
+		}
+		if month >= monthRange.upperBound {
+			month = monthRange.upperBound - 1
+		}
+	}
+	
+	func updateDay() {
+		if day < dayRange.lowerBound {
+			day = dayRange.lowerBound
+		}
+		if day >= dayRange.upperBound {
+			day = dayRange.upperBound - 1
+		}
+	}
+	
+	func updateCalendar() {
+		if type == .republican {
+			year = FRDate().year
+			month = FRDate().month
+			day = FRDate().day
+		} else {
+			year = Date.getCurrentYear()!
+			month = Date.getCurrentMonth()!
+			day = Date.getCurrentDay()!
+		}
+	}
+	
+	func updateYearRange() {
+		yearRange = type == .republican ? 1..<335 : 1792..<2127
+	}
+	
+	func updateMonthRange(for year: Int) {
+		if type == .gregorian {
+			if year == 1792 {
+				monthRange = 9..<13
+				return
+			} else if year == 2126 {
+				monthRange = 1..<10
+				return
+			}
+			monthRange = 1..<13
+			return
+		} else {
+			monthRange = 1..<14
+			return
+		}
+	}
+	
+	func updateDayRange(for year: Int, _ month: Int) {
+		if type == .republican {
+			guard month == 13 else {
+				dayRange = 1..<31
+				return
+			}
+			if Initializer.shared.leapYears.contains(year) {
+				dayRange = 1..<7
+				return
+			}
+			dayRange = 1..<6
+			return
 		} else {
 			if year == 1792 && month == 9 {
-				return 22..<31
+				dayRange = 22..<31
+				return
 			}
 			if year == 2126 && month == 9 {
-				return 1..<23
+				dayRange =  1..<23
+				return
 			}
 			if month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 {
-				return 1..<32
+				dayRange = 1..<32
+				return
 			}
 			if month == 2 {
-				return Date.isLeapYear(year) ? 1..<30 : 1..<29
+				dayRange = Date.isLeapYear(year) ? 1..<30 : 1..<29
+				return
 			}
-			return 1..<31
+			dayRange = 1..<31
+			return
 		}
 	}
 	
 	enum CalType {
 		case republican, gregorian
+		var name: String {
+			"\(self)"
+		}
 	}
-	
-
-
 }

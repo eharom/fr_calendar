@@ -8,39 +8,17 @@
 import SwiftUI
 
 struct ConverterView: View {
-	@State var pickerYear = FRDate().year {
-		didSet {
-			print("Year changed")
-			resetDisplayDate()
-		}
-	}
-	@State var pickerMonth = FRDate().month {
-		didSet {
-			print("Month changed")
-			resetDisplayDate()
-		}
-	}
-	@State var pickerDay = FRDate().day {
-		didSet {
-			print("Day changed")
-			resetDisplayDate()
-		}
-	}
+	@State var year: Int = FRDate().year
+	@State var month: Int = FRDate().month
+	@State var day: Int = FRDate().day
 	
-	func resetDisplayDate() {
-		print(pickerYear, pickerMonth, pickerDay)
+	var result: String {
 		if selectedCal == .republican {
-			dateText = "\(FRDate(pickerYear, pickerMonth, pickerDay).toGregorian())"
-		}
-		if let date = Date.from(string: "\(pickerYear)-\(pickerMonth)-\(pickerDay)") {
-			dateText = "\(date.toRepublican().longString)"
+			"\(FRDate(year, month, day).toGregorian())"
 		} else {
-			print("ERROR: Invalid Date String")
+			"\(Date.from(string: "\(year)-\(month)-\(day)")!.toRepublican().longString)"
 		}
 	}
-	
-	
-	@State var dateText = FRDate().longString
 	@State var selectedCal: CalPicker.CalType = .republican
 	
 	var body: some View {
@@ -57,14 +35,14 @@ struct ConverterView: View {
 				.padding(.horizontal, 10.0)
 				
 				HStack {
-					Text(dateText)
+					Text(result)
 					Spacer()
 				}
 				.padding(.horizontal, 10.0)
 				.font(.system(size: 20.0))
 				.foregroundStyle(.white.opacity(0.9))
 
-				CalPicker(type: $selectedCal, year: $pickerYear, month: $pickerMonth, day: $pickerDay)
+				CalPicker(type: $selectedCal, year: $year, month: $month, day: $day)
 					.background(Color.white.opacity(0.05))
 					.cornerRadius(20.0)
 				
@@ -72,14 +50,8 @@ struct ConverterView: View {
 					Button(action: {
 						if selectedCal == .republican {
 							selectedCal = .gregorian
-							pickerYear = Date.getCurrentYear()!
-							pickerMonth = Date.getCurrentMonth()!
-							pickerDay = Date.getCurrentDay()!
 						} else {
 							selectedCal = .republican
-							pickerYear = FRDate().year
-							pickerMonth = FRDate().month
-							pickerDay = FRDate().day
 						}
 					}, label: {
 						Image(systemName: "calendar")
@@ -91,7 +63,7 @@ struct ConverterView: View {
 					Spacer()
 					
 					Button(action: {
-						print(pickerYear, pickerMonth, pickerDay)
+//						print(pickerYear, pickerMonth, pickerDay)
 					}, label: {
 						Image(systemName: "arrowshape.right.circle.fill")
 							.foregroundStyle(.white.opacity(0.3))
