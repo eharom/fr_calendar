@@ -44,6 +44,7 @@ struct MonthCalendarView: View {
 			.padding(.horizontal, 10.0)
 			.foregroundColor(Color(white: 0.9))
 			.background(Color(white: 0.1))
+
 			GrayDivider()
 			
 			MonthGridView(viewModel: viewModel, month: viewModel.months[viewModel.selectedDate.month - 1], numcolumns: numOfDays)

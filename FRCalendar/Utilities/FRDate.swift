@@ -16,6 +16,46 @@ struct FRDate: Equatable {
 	
     var string: String { "\(year.padded)-\(month.padded)-\(day.padded)" }
 	
+	var longString : String {
+		return "\(dayName), \(monthName) \(day), \(year)"
+	}
+	
+	private var dayName: String {
+		switch day % 10 {
+		case 1: "Primidi"
+		case 2: "Duoidi"
+		case 3: "Tridi"
+		case 4: "Quartidi"
+		case 5: "Quintidi"
+		case 6: "Sextidi"
+		case 7: "Septidi"
+		case 8: "Octidi"
+		case 9: "Nonidi"
+		case 10: "Décadi"
+		default: "\(day)"
+		}
+	}
+	private var monthName: String {
+		switch month {
+		case 1: "Vendémiarie"
+		case 2: "Brumaire"
+		case 3: "Frimaire"
+		case 4: "Nivôse"
+		case 5: "Pluviôse"
+		case 6: "Ventôse"
+		case 7: "Germinal"
+		case 8: "Floréal"
+		case 9: "Prairial"
+		case 10: "Messidor"
+		case 11: "Thermidor"
+		case 12: "Fructidor"
+		case 13: "Sansculottides"
+		default: "\(month)"
+		}
+	}
+
+
+	
 	init(_ y: Int, _ m: Int, _ d: Int) {
 		self.year = y
 		self.month = m

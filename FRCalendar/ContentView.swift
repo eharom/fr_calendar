@@ -9,32 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
 	@ObservedObject var viewModel = ViewModel()
-	var h = UIScreen.main.bounds.height / 2.5
 	
 	var body: some View {
-		@State var yPos = h + (h * 1.8)
-
 		VStack(spacing: 0.0) {
 			HeaderView(viewModel: viewModel)
-			
 			if !viewModel.isMonthView {
-//				ZStack {
-					YearCalendarView(viewModel: viewModel)
-//						YearCalendarView(viewModel: viewModel)
-//							.border(.red)
-//							.position(x: UIScreen.main.bounds.width / 2.0, y: yPos)
-//					}
+				YearCalendarView(viewModel: viewModel)
 					.gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
-											.onEnded({ value in
-												if value.translation.height < 0.0 {
-													viewModel.selectedDate.year += 1
-												}
-
-												if value.translation.height > 0.0 {
-													viewModel.selectedDate.year -= 1
-												}
-											}))
-//
+						.onEnded({ value in
+							if value.translation.height < 0.0 {
+								viewModel.selectedDate.year += 1
+							}
+							
+							if value.translation.height > 0.0 {
+								viewModel.selectedDate.year -= 1
+							}
+						}))
 			} else {
 				MonthCalendarView(viewModel: viewModel)
 			}
@@ -50,20 +40,45 @@ struct HeaderView: View {
 		HStack {
 			if viewModel.isMonthView {
 				Button(action: {
-					viewModel.isMonthView.toggle()
+					viewModel.isMonthView = false
 				}, label: {
 					Image(systemName: "chevron.left")
-					Text("\(viewModel.selectedDate.year)")
+					Text(viewModel.yearWasTapped ? "\(viewModel.selectedDate.year)" : "\(Converter.romanNumeralFor(viewModel.selectedDate.year))")
 						.font(.title3)
 				})
+			} else {
+				
 			}
 			Spacer()
-			Button(action: { }, label: { Image(systemName: "plus") })
-				.foregroundStyle(Color(white: 0.1))
+
+			Button(action: {
+				viewModel.showConverterView = true
+			}, label: {
+				Image(systemName: "arrow.left.arrow.right")
+					.foregroundStyle(.white.opacity(0.9))
+					.font(.title3)
+			})
+				.sheet(isPresented: $viewModel.showConverterView) {
+					ConverterView()
+						.presentationDetents([.height(400.0)])
+				}
+			
+			Button(action: {
+				viewModel.showInfoView = true
+			}, label: {
+				Image(systemName: "info.circle")
+					.foregroundStyle(.white.opacity(0.9))
+					.font(.title3)
+			})
+				.sheet(isPresented: $viewModel.showInfoView) {
+					InformationView()
+				}
+
+			.padding(.leading, 40.0)
 		}
 		.padding(.horizontal, 15.0)
 		.padding(.bottom, 15.0)
-		.background(Color(white: 0.1))
+		.background(.white.opacity(0.1))
 		.foregroundStyle(.red)
 		.font(.title2)
 	}
@@ -88,19 +103,6 @@ struct FooterView: View {
 
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #Preview {

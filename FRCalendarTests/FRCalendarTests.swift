@@ -97,7 +97,7 @@ final class FRCalendarTests: XCTestCase {
 
 	func testSuccessfulConverstionToGreg() {
 		for i in 0..<frDates.count {
-			let gDate = frDates[i].gregorian.string
+			let gDate = frDates[i].toGregorian().string
 			XCTAssertEqual("\(gDate)", gDates[i])
 		}
 	}

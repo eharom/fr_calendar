@@ -8,11 +8,15 @@
 import SwiftUI
 
 class ViewModel: ObservableObject {
+	@Published var showInfoView = false
+	@Published var showConverterView = false
+
 	@Published var currentDate = FRDate()
 	@Published var selectedDate = FRDate()
 	@Published var months: [Month] = []
 	@Published var isMonthView = false
-
+	@Published var yearWasTapped = false
+	
 	var isLeapYear: Bool {
 		Initializer.shared.leapYears.contains(selectedDate.year)
 	}

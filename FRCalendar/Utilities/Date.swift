@@ -8,6 +8,14 @@
 import Foundation
 
 extension Date {
+	
+	static func isLeapYear(_ targetYear: Int) -> Bool {
+	if targetYear % 400 == 0 { return true }
+	if targetYear % 100 == 0 { return false }
+	if targetYear % 4 == 0 { return true }
+	return false
+}
+	
     static let referenceDate = Date.from(string: "1792-09-22")
 	
 	var string: String {
@@ -20,6 +28,28 @@ extension Date {
 		let dateString = "\(year)-\(month)-\(day)"
 		return Date.from(string: dateString)
 	}
+	
+	static func getCurrentYear() -> Int? {
+		let components = Calendar.current.dateComponents(in: TimeZone.current, from: Date())
+		guard let year = components.year else { return nil }
+		return year
+	}
+	
+	static func getCurrentMonth() -> Int? {
+		let components = Calendar.current.dateComponents(in: TimeZone.current, from: Date())
+		guard let month = components.month else { return nil }
+		return month
+	}
+	
+	static func getCurrentDay() -> Int? {
+		let components = Calendar.current.dateComponents(in: TimeZone.current, from: Date())
+		guard let day = components.day else { return nil }
+		return day
+	}
+	
+	
+	
+	
 	
 	func toRepublican() -> FRDate {
 		let dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: self)

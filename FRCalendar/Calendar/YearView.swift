@@ -16,11 +16,15 @@ struct YearCalendarView: View {
 				.foregroundStyle(.black)
 			VStack(spacing: 0.0) {
 				
-				//			Year sign
-				HStack { Text(/*Converter.romanNumeralFor(viewModel.selectedDate.year)*/"\(viewModel.selectedDate.year)")
+				//			Year header
+				HStack {
+					Text(viewModel.yearWasTapped ? "\(viewModel.selectedDate.year)" : "\(Converter.romanNumeralFor(viewModel.selectedDate.year))")
 						.bold()
 						.font(.largeTitle)
 						.foregroundStyle(viewModel.selectedDate.year == viewModel.currentDate.year ? .red : Color(white: 0.9))
+						.onTapGesture {
+							viewModel.yearWasTapped.toggle()
+						}
 					Spacer()
 				}
 				.padding(.vertical, 5.0)
