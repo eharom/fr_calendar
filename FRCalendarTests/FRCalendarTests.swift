@@ -49,7 +49,7 @@ final class FRCalendarTests: XCTestCase {
        FRDate(132, 1, 1),
        FRDate(139, 13, 6),
        FRDate(233, 7, 13),
-	   FRDate(233, 7, 15)
+       FRDate(233, 7, 15)
     ]
 
     let gDates = [
@@ -92,24 +92,25 @@ final class FRCalendarTests: XCTestCase {
         "1923-09-24",
         "1931-09-23",
         "2025-04-02",
-		"2025-04-04"
+        "2025-04-04"
     ]
 
-	func testSuccessfulConverstionToGreg() {
-		for i in 0..<frDates.count {
-			let gDate = frDates[i].toGregorian().string
-			XCTAssertEqual("\(gDate)", gDates[i])
-		}
-	}
-	
-	func testGivenGregorianDateWhenConvertedToFRCThenCorrect() {
-		for i in 0..<frDates.count {
-			let gDate = Date.from(string: gDates[i])!
-			let frDate = gDate.toRepublican().string
+    func testSuccessfulConverstionToGreg() {
+        for i in 0..<frDates.count {
+            let gDate = frDates[i].toGregorian().string
+            XCTAssertEqual("\(gDate)", gDates[i])
+        }
+    }
+    
+    func testGivenGregorianDateWhenConvertedToFRCThenCorrect() {
+        for i in 0..<frDates.count {
+            let gDate = Date.from(string: gDates[i])!
+            let frDate = gDate.toRepublican().string
             let result = frDate == frDates[i].string ? " " : "X"
             let suffix = String(frDates[i].string.suffix(1)) == "6" ? "Leap" : ""
             print("Date: \(gDate.string), \(frDate) \(result) \(frDates[i].string) \(suffix)")
-			XCTAssertEqual("\(frDate)", frDates[i].string)
-		}
-	}
+            XCTAssertEqual("\(frDate)", frDates[i].string)
+        }
+    }
 }
+
