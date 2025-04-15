@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4847148D2DA6C8CC0062E38C /* rural_calendar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4847148C2DA6C8CC0062E38C /* rural_calendar.txt */; };
+		48535D972DAD699100AAB5D6 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48535D962DAD698E00AAB5D6 /* Global.swift */; };
+		48535D992DAD91DA00AAB5D6 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48535D982DAD91D600AAB5D6 /* UIDevice.swift */; };
+		48535D9A2DAD91DA00AAB5D6 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48535D982DAD91D600AAB5D6 /* UIDevice.swift */; };
 		48670B2A2D9DF6E6008CB09D /* FRCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B292D9DF6E6008CB09D /* FRCalendarApp.swift */; };
 		48670B2C2D9DF6E6008CB09D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B2B2D9DF6E6008CB09D /* ContentView.swift */; };
 		48670B2E2D9DF6E8008CB09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48670B2D2D9DF6E8008CB09D /* Assets.xcassets */; };
@@ -40,6 +43,13 @@
 		488663A62DA06463006B6646 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488663A42DA0645E006B6646 /* MonthView.swift */; };
 		488663A82DA08A55006B6646 /* MiniMonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488663A72DA08A4C006B6646 /* MiniMonthGridView.swift */; };
 		488663A92DA08A55006B6646 /* MiniMonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488663A72DA08A4C006B6646 /* MiniMonthGridView.swift */; };
+		48CC0F672DA9C05600E4879C /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC0F662DA9C04800E4879C /* InformationView.swift */; };
+		48CC0F6B2DAA2DCA00E4879C /* ConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC0F6A2DAA2DBF00E4879C /* ConverterView.swift */; };
+		48CC0F6D2DAA34E700E4879C /* CalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC0F6C2DAA34DA00E4879C /* CalPicker.swift */; };
+		48EDCB932DAC139200D1A861 /* CalPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EDCB922DAC138600D1A861 /* CalPickerTests.swift */; };
+		48EDCB942DAC14AE00D1A861 /* CalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC0F6C2DAA34DA00E4879C /* CalPicker.swift */; };
+		48EDCB952DAC168500D1A861 /* ConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC0F6A2DAA2DBF00E4879C /* ConverterView.swift */; };
+		48EDCB962DAC16A500D1A861 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC0F662DA9C04800E4879C /* InformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		4847148C2DA6C8CC0062E38C /* rural_calendar.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = rural_calendar.txt; sourceTree = "<group>"; };
+		48535D962DAD698E00AAB5D6 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		48535D982DAD91D600AAB5D6 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		48670B262D9DF6E6008CB09D /* FRCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FRCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48670B292D9DF6E6008CB09D /* FRCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCalendarApp.swift; sourceTree = "<group>"; };
 		48670B2B2D9DF6E6008CB09D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +97,10 @@
 		488663A12D9F8531006B6646 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		488663A42DA0645E006B6646 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		488663A72DA08A4C006B6646 /* MiniMonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniMonthGridView.swift; sourceTree = "<group>"; };
+		48CC0F662DA9C04800E4879C /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		48CC0F6A2DAA2DBF00E4879C /* ConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterView.swift; sourceTree = "<group>"; };
+		48CC0F6C2DAA34DA00E4879C /* CalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalPicker.swift; sourceTree = "<group>"; };
+		48EDCB922DAC138600D1A861 /* CalPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalPickerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4818813A2DAAEF9300E7529C /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				48CC0F662DA9C04800E4879C /* InformationView.swift */,
+				48CC0F6A2DAA2DBF00E4879C /* ConverterView.swift */,
+			);
+			path = Sheets;
+			sourceTree = "<group>";
+		};
 		48670B1D2D9DF6E6008CB09D = {
 			isa = PBXGroup;
 			children = (
@@ -135,9 +160,11 @@
 		48670B282D9DF6E6008CB09D /* FRCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				486E775A2DA7713F0094FE9E /* AppDelegate.swift */,
 				48670B292D9DF6E6008CB09D /* FRCalendarApp.swift */,
+				486E775A2DA7713F0094FE9E /* AppDelegate.swift */,
+				48535D962DAD698E00AAB5D6 /* Global.swift */,
 				48670B2B2D9DF6E6008CB09D /* ContentView.swift */,
+				4818813A2DAAEF9300E7529C /* Sheets */,
 				48670B722D9EF0B9008CB09D /* Calendar */,
 				48670B762D9EF0B9008CB09D /* Month */,
 				48670B792D9EF0B9008CB09D /* Day */,
@@ -163,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				48670B3B2D9DF6E8008CB09D /* FRCalendarTests.swift */,
+				48EDCB922DAC138600D1A861 /* CalPickerTests.swift */,
 			);
 			path = FRCalendarTests;
 			sourceTree = "<group>";
@@ -208,6 +236,8 @@
 		48670B8A2D9EF0D9008CB09D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				48CC0F6C2DAA34DA00E4879C /* CalPicker.swift */,
+				48535D982DAD91D600AAB5D6 /* UIDevice.swift */,
 				48670B8B2D9EF0D9008CB09D /* View.swift */,
 				48670B562D9DF739008CB09D /* Date.swift */,
 				48670B542D9DF72F008CB09D /* FRDate.swift */,
@@ -347,14 +377,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48CC0F672DA9C05600E4879C /* InformationView.swift in Sources */,
+				48535D992DAD91DA00AAB5D6 /* UIDevice.swift in Sources */,
 				48670B7E2D9EF0B9008CB09D /* YearViewModel.swift in Sources */,
 				488663A62DA06463006B6646 /* MonthView.swift in Sources */,
+				48CC0F6D2DAA34E700E4879C /* CalPicker.swift in Sources */,
 				4886639D2D9F83CC006B6646 /* YearView.swift in Sources */,
 				488663A32D9F8535006B6646 /* DayView.swift in Sources */,
 				486E775B2DA771470094FE9E /* AppDelegate.swift in Sources */,
 				48670B842D9EF0B9008CB09D /* Month.swift in Sources */,
+				48535D972DAD699100AAB5D6 /* Global.swift in Sources */,
 				48670B2C2D9DF6E6008CB09D /* ContentView.swift in Sources */,
 				48670B552D9DF72F008CB09D /* FRDate.swift in Sources */,
+				48CC0F6B2DAA2DCA00E4879C /* ConverterView.swift in Sources */,
 				48670B2A2D9DF6E6008CB09D /* FRCalendarApp.swift in Sources */,
 				48670B8D2D9EF0D9008CB09D /* View.swift in Sources */,
 				488663A82DA08A55006B6646 /* MiniMonthGridView.swift in Sources */,
@@ -369,17 +404,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				48670B3C2D9DF6E8008CB09D /* FRCalendarTests.swift in Sources */,
+				48535D9A2DAD91DA00AAB5D6 /* UIDevice.swift in Sources */,
+				48EDCB952DAC168500D1A861 /* ConverterView.swift in Sources */,
 				486E77592DA764FA0094FE9E /* ContentView.swift in Sources */,
 				48670B592D9DF829008CB09D /* Date.swift in Sources */,
 				4886639F2D9F8424006B6646 /* MonthGridView.swift in Sources */,
 				488663A52DA06463006B6646 /* MonthView.swift in Sources */,
 				488663A22D9F8535006B6646 /* DayView.swift in Sources */,
+				48EDCB942DAC14AE00D1A861 /* CalPicker.swift in Sources */,
 				4886639C2D9F83CC006B6646 /* YearView.swift in Sources */,
 				488663A92DA08A55006B6646 /* MiniMonthGridView.swift in Sources */,
 				48670B852D9EF0B9008CB09D /* Month.swift in Sources */,
 				48670B872D9EF0B9008CB09D /* Day.swift in Sources */,
 				48670B582D9DF824008CB09D /* FRDate.swift in Sources */,
 				48670B7F2D9EF0B9008CB09D /* YearViewModel.swift in Sources */,
+				48EDCB962DAC16A500D1A861 /* InformationView.swift in Sources */,
+				48EDCB932DAC139200D1A861 /* CalPickerTests.swift in Sources */,
 				48670B8E2D9EF0D9008CB09D /* View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,10 +574,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FRCalendar/FRCalendar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"FRCalendar/Preview Content\"";
-				DEVELOPMENT_TEAM = T42M575FSS;
+				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -557,7 +597,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.code3e.frcalendar;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.fr-calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -575,10 +615,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FRCalendar/FRCalendar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"FRCalendar/Preview Content\"";
-				DEVELOPMENT_TEAM = T42M575FSS;
+				DEVELOPMENT_TEAM = 5HRDTDUZ98;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -598,7 +638,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.code3e.frcalendar;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.code3e.fr-calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -623,10 +663,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.FRCalendarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FRCalendar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FRCalendar";
 			};
 			name = Debug;
@@ -645,10 +686,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.FRCalendarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FRCalendar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FRCalendar";
 			};
 			name = Release;
@@ -666,10 +708,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.FRCalendarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = FRCalendar;
 			};
 			name = Debug;
@@ -687,10 +730,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.FRCalendarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = FRCalendar;
 			};
 			name = Release;

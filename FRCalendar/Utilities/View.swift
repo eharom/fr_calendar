@@ -8,26 +8,27 @@
 import SwiftUI
 
 extension View {
-	@ViewBuilder func `if` <Content: View>(_ condition: @autoclosure () -> Bool, transform: (Self) -> Content) -> some View {
-		if condition() {
-			transform(self)
-		} else {
-			self
-		}
-	}
+    @ViewBuilder func `if` <Content: View>(_ condition: @autoclosure () -> Bool, transform: (Self) -> Content) -> some View {
+        if condition() {
+            transform(self)
+        } else {
+            self
+        }
+    }
 }
 
 extension Int {
-	var padded: String {
-		String(format: "%02d", self)
-	}
+    var padded: String {
+        String(format: "%02d", self)
+    }
 }
 
 struct GrayDivider: View {
-	var body: some View {
-		Rectangle()
-			.frame(maxWidth: .infinity)
-			.frame(height: 1.0)
-			.foregroundStyle(Color(white: 0.2))
-	}
+    var body: some View {
+        Rectangle()
+            .frame(maxWidth: .infinity)
+            .frame(height: 1.0)
+            .foregroundStyle(Color(white: 0.2))
+    }
 }
+
