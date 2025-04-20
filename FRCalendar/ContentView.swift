@@ -106,9 +106,12 @@ struct FooterView: View {
                 viewModel.selectedDate = viewModel.currentDate
             }, label: { Text("Today") })
             Spacer()
-//            Button(action: {
-//                
-//            }, label: { Image(systemName: "plus") })
+            Button(action: {
+                viewModel.showReminderCreationView = true
+            }, label: { Image(systemName: "plus") })
+            .sheet(isPresented: $viewModel.showReminderCreationView) {
+                ReminderCreationView(viewModel: viewModel)
+            }
         }
         .padding(.horizontal, 15.0)
         .padding(.top, 15.0)

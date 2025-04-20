@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftData
 
-struct FRDate: Equatable {
+struct FRDate: Equatable, Codable {
     var year: Int = 1
     var month: Int = 1
     var day: Int = 1

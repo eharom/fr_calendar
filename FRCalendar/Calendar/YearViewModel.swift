@@ -11,6 +11,7 @@ class ViewModel: ObservableObject {
     @Published var showInfoView = false
     @Published var showConverterView = false
     @Published var showGregorian = false
+    @Published var showReminderCreationView = false
 
     @Published var currentDate = FRDate()
     @Published var selectedDate = FRDate()

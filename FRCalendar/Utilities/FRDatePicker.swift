@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct CalPicker: View {
-    @Binding var type: CalPicker.CalType
-//    @Binding var result: String
+struct FRDatePicker: View {
+    @Binding var type: FRDatePicker.CalType
 
     @Binding var year: Int
     @Binding var month: Int
