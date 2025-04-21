@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import UserNotifications
 
 struct ReminderCreationView: View {
     @ObservedObject var viewModel: ViewModel
@@ -100,6 +101,9 @@ struct ReminderCreationView: View {
                 ToolbarItem(placement: .primaryAction) {
                     Button("Add") {
                         if title != "" {
+                            requestNotificationPermissions()
+                            createNotification()
+                            
                             addReminder()
                             viewModel.showReminderCreationView = false
                         }
@@ -157,6 +161,32 @@ struct ReminderCreationView: View {
     
     private func removeReminder(_ reminder: Reminder) {
         context.delete(reminder)
+    }
+    
+    private func requestNotificationPermissions() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("Notification permission granted.")
+            } else if let error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func createNotification() {
+        let initialDate = date.toGregorian(hour: hour + (halfOfDay == 1 ? 12 : 0), minute: minute)
+        let gDateComponents = Calendar.current.dateComponents(Set(arrayLiteral: Calendar.Component.year, Calendar.Component.month, Calendar.Component.day, Calendar.Component.hour, Calendar.Component.minute), from: initialDate)
+        print()
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = "Today, \(time)"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: gDateComponents, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+        
+        UNUserNotificationCenter.current().add(request)
     }
 
 }

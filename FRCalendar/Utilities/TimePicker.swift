@@ -57,7 +57,7 @@ struct TimePicker: View {
             }
         }
     }
-    
+
     enum System {
         case decimal, standard
     }

@@ -34,9 +34,19 @@ extension Date {
     }
 
     static let referenceDate = Date.from(string: "1792-09-22")
+    
     var string: String {
       String("\(self)".prefix(10))
     }
+    
+    func getComponent(_ component: Calendar.Component) -> DateComponents {
+        Calendar.current.dateComponents([component], from: self)
+    }
+    
+//    func getComponentAsInt(_ component: Calendar.Component) -> Int {
+//        Int(Calendar.current.dateComponents([component], from: self))
+//    }
+    
   
     static func getCurrentDate() -> Date? {
         let components = Calendar.current.dateComponents(in: TimeZone.current, from: Date())
