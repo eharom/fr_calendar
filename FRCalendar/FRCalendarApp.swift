@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct FRCalendarApp: App {
@@ -15,6 +16,7 @@ struct FRCalendarApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Reminder.self)
     }
 }
 

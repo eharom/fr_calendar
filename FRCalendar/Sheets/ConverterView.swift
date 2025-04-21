@@ -22,7 +22,7 @@ struct ConverterView: View {
         }
     }
     
-    @State var selectedCal: CalPicker.CalType = .republican
+    @State var selectedCal: FRDatePicker.CalType = .republican
     
     var body: some View {
         ZStack {
@@ -46,7 +46,7 @@ struct ConverterView: View {
                 .font(.system(size: 20.0))
                 .foregroundStyle(.white.opacity(0.9))
 
-                CalPicker(type: $selectedCal, year: $year, month: $month, day: $day)
+                FRDatePicker(type: $selectedCal, year: $year, month: $month, day: $day)
                     .background(.white.opacity(0.05))
                     .cornerRadius(20.0)
                 

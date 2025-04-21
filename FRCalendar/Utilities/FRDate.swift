@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftData
 
-struct FRDate: Equatable {
+struct FRDate: Equatable, Codable {
     var year: Int = 1
     var month: Int = 1
     var day: Int = 1
@@ -68,9 +69,9 @@ struct FRDate: Equatable {
         self = frDate
     }
     
-    func toGregorian() -> Date {
+    func toGregorian(hour: Int = 0, minute: Int = 0) -> Date {
         let leapYears = Initializer.shared.leapYears.filter { $0 < year }.count
-        return Calendar(identifier: .iso8601).date(byAdding: DateComponents(calendar: Calendar(identifier: .iso8601), day: ((year - 1)*365 + (month - 1)*30 + (day - 1) + leapYears)), to: Date.referenceDate!)!
+        return Calendar(identifier: .iso8601).date(byAdding: DateComponents(calendar: Calendar(identifier: .iso8601), day: ((year - 1)*365 + (month - 1)*30 + (day - 1) + leapYears), hour: hour, minute: minute), to: Date.referenceDate!)!
     }
 }
 
