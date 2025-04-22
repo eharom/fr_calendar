@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480A202A2DB60B0E009C407D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480A20292DB60B08009C407D /* Color.swift */; };
+		480A202B2DB60B0E009C407D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480A20292DB60B08009C407D /* Color.swift */; };
 		4847148D2DA6C8CC0062E38C /* rural_calendar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4847148C2DA6C8CC0062E38C /* rural_calendar.txt */; };
 		484D4E842DAF364300A2392D /* ReminderCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D4E832DAF363600A2392D /* ReminderCreationView.swift */; };
 		484D4E852DAF364300A2392D /* ReminderCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D4E832DAF363600A2392D /* ReminderCreationView.swift */; };
@@ -76,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		480A20292DB60B08009C407D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4847148C2DA6C8CC0062E38C /* rural_calendar.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = rural_calendar.txt; sourceTree = "<group>"; };
 		484D4E832DAF363600A2392D /* ReminderCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCreationView.swift; sourceTree = "<group>"; };
 		484D4E862DB0287A00A2392D /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
@@ -249,6 +252,7 @@
 			children = (
 				48CC0F6C2DAA34DA00E4879C /* FRDatePicker.swift */,
 				484D4E862DB0287A00A2392D /* TimePicker.swift */,
+				480A20292DB60B08009C407D /* Color.swift */,
 				48535D982DAD91D600AAB5D6 /* UIDevice.swift */,
 				48670B8B2D9EF0D9008CB09D /* View.swift */,
 				48670B562D9DF739008CB09D /* Date.swift */,
@@ -391,6 +395,7 @@
 			files = (
 				48CC0F672DA9C05600E4879C /* InformationView.swift in Sources */,
 				48535D992DAD91DA00AAB5D6 /* UIDevice.swift in Sources */,
+				480A202B2DB60B0E009C407D /* Color.swift in Sources */,
 				48670B7E2D9EF0B9008CB09D /* YearViewModel.swift in Sources */,
 				488663A62DA06463006B6646 /* MonthView.swift in Sources */,
 				48CC0F6D2DAA34E700E4879C /* FRDatePicker.swift in Sources */,
@@ -431,6 +436,7 @@
 				4886639C2D9F83CC006B6646 /* YearView.swift in Sources */,
 				488663A92DA08A55006B6646 /* MiniMonthGridView.swift in Sources */,
 				48670B852D9EF0B9008CB09D /* Month.swift in Sources */,
+				480A202A2DB60B0E009C407D /* Color.swift in Sources */,
 				48670B872D9EF0B9008CB09D /* Day.swift in Sources */,
 				48670B582D9DF824008CB09D /* FRDate.swift in Sources */,
 				48E54A8F2DB1C5850024EA9A /* Reminder.swift in Sources */,

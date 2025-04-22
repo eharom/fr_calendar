@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct YearCalendarView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundStyle(.black)
+                .foregroundStyle(.clear)
             VStack(spacing: 0.0) {
                 
                 //            Year header
@@ -21,7 +22,7 @@ struct YearCalendarView: View {
                     Text(viewModel.showRomanNumerals ? "\(viewModel.selectedDate.year)" : "\(Converter.romanNumeralFor(viewModel.selectedDate.year))")
                         .bold()
                         .font(.largeTitle)
-                        .foregroundStyle(viewModel.selectedDate.year == viewModel.currentDate.year ? .red : Color(white: 0.9))
+                        .foregroundStyle(viewModel.selectedDate.year == viewModel.currentDate.year ? .red : colorScheme == .light ? .black : .white)
                         .onTapGesture {
                             viewModel.showRomanNumerals.toggle()
                             viewModel.userDefaults.set(viewModel.showRomanNumerals, forKey: viewModel.showRomanNumeralsKey)
@@ -31,11 +32,12 @@ struct YearCalendarView: View {
                         Text(verbatim: "\(viewModel.selectedDate.year + 1791) - \(viewModel.selectedDate.year + 1792)")
                             .bold()
                             .font(.title3)
-                            .foregroundStyle(Color(white: 0.5))
+                            .foregroundStyle(.gray)
                     }
                 }
                 .padding(.vertical, 5.0)
                 
+//                Divider().padding(.bottom, 10.0)
                 GrayDivider().padding(.bottom, 10.0)
                 
                 //            Mini month cards for months 1 - 12
@@ -52,13 +54,12 @@ struct YearCalendarView: View {
                 
                 Spacer()
                 
-                //            Mini month card
                 ZStack {
                     Rectangle()
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.clear)
                     HStack(spacing: 0.0) {
                         Text(viewModel.months[12].name)
-                            .foregroundStyle(viewModel.currentDate.month == viewModel.months[12].monthIndex && viewModel.currentDate.year == viewModel.selectedDate.year ? .red : Color(white: 0.9))
+                            .foregroundStyle(viewModel.currentDate.month == viewModel.months[12].monthIndex && viewModel.currentDate.year == viewModel.selectedDate.year ? .red : colorScheme == .light ? .black : .white)
                             .font(.title3)
                             .bold()
                         Spacer()
@@ -76,7 +77,7 @@ struct YearCalendarView: View {
                                 Circle()
                                     .foregroundStyle(viewModel.currentDate == FRDate(viewModel.selectedDate.year, 13, day) ? .red : .clear)
                                 Text("\(day)")
-                                    .foregroundStyle(Color(white: 0.9))
+                                    .foregroundStyle(colorScheme == .light ? .black : .white)
                                     .font(.system(size: 10))
                             }
                             .frame(maxHeight: 25.0)
@@ -97,33 +98,6 @@ struct YearCalendarView: View {
     
     var columns: [GridItem] {
             Array(repeating: GridItem(.flexible(), spacing: 15.0), count: 3)
-    }
-}
-
-
-struct AText: View {
-    var text: String
-    var alignment: Alignment
-    
-    init(_ text: String, alignment: Alignment) {
-        self.text = text
-        self.alignment = alignment
-    }
-    
-    var body: some View {
-        HStack(spacing: 0.0) {
-            if alignment == .trailing {
-                Spacer()
-            }
-            Text(text)
-            if alignment == .leading {
-                Spacer()
-            }
-        }
-    }
-    
-    enum Alignment {
-        case leading, trailing
     }
 }
 

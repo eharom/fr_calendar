@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel = ViewModel()
     
     var body: some View {
@@ -22,7 +23,6 @@ struct ContentView: View {
                                     viewModel.selectedDate.year += 1
                                 }
                             }
-                            
                             if value.translation.height > 0.0 {
                                 if viewModel.selectedDate.year > 1 {
                                     viewModel.selectedDate.year -= 1
@@ -34,11 +34,11 @@ struct ContentView: View {
             }
             FooterView(viewModel: viewModel)
         }
-        .background(.black)
     }
 }
 
 struct HeaderView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: ViewModel
     var body: some View {
         HStack {
@@ -47,12 +47,14 @@ struct HeaderView: View {
                     viewModel.isMonthView = false
                 }, label: {
                     Image(systemName: "chevron.left")
+                        .foregroundStyle(.red)
                     Text(viewModel.showRomanNumerals ? "\(viewModel.selectedDate.year)" : "\(Converter.romanNumeralFor(viewModel.selectedDate.year))")
+                        .foregroundStyle(.red)
                         .font(.title3)
                 })
             } else {
                 Image(systemName: viewModel.showGregorian ? "eye.fill" : "eye.slash.fill")
-                    .foregroundStyle(viewModel.showGregorian ? .white.opacity(0.75) : .white.opacity(0.3))
+                    .foregroundStyle(.gray)
                     .onTapGesture {
                         viewModel.showGregorian.toggle()
                         viewModel.userDefaults.set(viewModel.showGregorian, forKey: viewModel.showGregorianKey)
@@ -64,7 +66,7 @@ struct HeaderView: View {
                 viewModel.showConverterView = true
             }, label: {
                 Image(systemName: "arrow.left.arrow.right")
-                    .foregroundStyle(.white.opacity(0.9))
+                    .foregroundStyle(.red)
                     .font(.title3)
             })
                 .sheet(isPresented: $viewModel.showConverterView) {
@@ -76,7 +78,7 @@ struct HeaderView: View {
                 viewModel.showInfoView = true
             }, label: {
                 Image(systemName: "info.circle")
-                    .foregroundStyle(.white.opacity(0.9))
+                    .foregroundStyle(.red)
                     .font(.title3)
             })
                 .sheet(isPresented: $viewModel.showInfoView) {
@@ -87,15 +89,15 @@ struct HeaderView: View {
         }
         .padding(.horizontal, 15.0)
         .padding(.bottom, 15.0)
-        .background(.white.opacity(0.1))
-        .foregroundStyle(.red)
+        .background(colorScheme == .light ? Color.lightGray : .darkGray)
         .font(.title2)
     }
 }
 struct FooterView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: ViewModel
     var body: some View {
-        GrayDivider()
+//        GrayDivider()
         HStack {
             Button(action: {
                 if viewModel.selectedYearIsCurrentYear() {
@@ -105,18 +107,18 @@ struct FooterView: View {
                 }
                 viewModel.selectedDate = viewModel.currentDate
             }, label: { Text("Today") })
+            .foregroundStyle(.red)
             Spacer()
             Button(action: {
                 viewModel.showReminderCreationView = true
-            }, label: { Image(systemName: "plus") })
+            }, label: { Image(systemName: "plus").foregroundStyle(.red) })
             .sheet(isPresented: $viewModel.showReminderCreationView) {
                 ReminderCreationView(viewModel: viewModel)
             }
         }
         .padding(.horizontal, 15.0)
         .padding(.top, 15.0)
-        .background(Color(white: 0.1))
-        .foregroundStyle(.red)
+        .background(colorScheme == .light ? Color.lightGray : .darkGray)
         .font(.title3)
 
     }

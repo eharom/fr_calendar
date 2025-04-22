@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct DayCalendarView: View {
+    @Environment(\.colorScheme) var colorScheme
+    @Query private var reminders: [Reminder]
     @ObservedObject var viewModel: ViewModel
     let day: Day
     
@@ -18,7 +21,7 @@ struct DayCalendarView: View {
         if viewModel.selectedYearIsCurrentYear() && viewModel.dayAndMonthAreEqualToCurrentDay(day) {
             return .red
         } else {
-            return Color(white: 0.9)
+            return colorScheme == .light ? .black : .white
         }
     }
     
@@ -27,43 +30,56 @@ struct DayCalendarView: View {
             if viewModel.selectedYearIsCurrentYear() && viewModel.dayAndMonthAreEqualToCurrentDay(day) {
                 return .red
             }
-            return Color(white: day.date.day % 5 == 0 ? 0.55 : 0.9)
+            return day.date.day % 5 == 0 ? .gray : colorScheme == .light ? .black : .white
         }
         if viewModel.selectedYearIsCurrentYear() && viewModel.dayAndMonthAreEqualToCurrentDay(day) {
-            return Color(white: 0.9)
+            return .white
         } else {
-            return .black
+            return colorScheme == .light ? .white : .black
         }
+    }
+    
+    var dateHasReminder: Bool {
+        for reminder in reminders where reminder.date == FRDate(viewModel.selectedDate.year, viewModel.selectedDate.month, day.date.day) {
+            return true
+        }
+        return false
     }
     
     var body: some View {
         VStack(spacing: 0.0) {
             GrayDivider()
+//            Divider()
             ZStack {
                 Rectangle()
                     .aspectRatio(2/3, contentMode: .fit)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(colorScheme == .light ? .white : .black)
                 VStack(spacing: 0.0) {
                     ZStack {
                         Circle()
                             .foregroundStyle(circleColor)
-                            .frame(maxWidth: viewModel.selectedDate.month == 13 ? 40 : nil, maxHeight: viewModel.selectedDate.month == 13 ? 40 : nil)
+                            .frame(maxWidth: viewModel.selectedDate.month == 13 ? 40.0 : 35.0, maxHeight: viewModel.selectedDate.month == 13 ? 40.0 : 35.0)
                         Text("\(day.day)")
                             .foregroundStyle(textColor)
                             .font(.system(size: 20.0))
                             .bold()
                     }
-//                    if viewModel.showGregorian && Calendar.current.component(.day, from: FRDate(viewModel.selectedDate.year, viewModel.selectedDate.month, day.date.day).toGregorian()) == 1 {
-//                        let monthNum = Calendar.current.component(.month, from: FRDate(viewModel.selectedDate.year, day.date.month, day.date.day).toGregorian())
-//                        Text("\(Date.getMonthName(for: monthNum).prefix(3))")
-//                            .font(.footnote)
-//                            .foregroundStyle(.white.opacity(0.9))
-//                    }
+                    Circle()
+                        .frame(maxWidth: 7.0, maxHeight: 7.0)
+                        .foregroundStyle(dateHasReminder ? .gray : .clear)
+                        .padding(.top, 5.0)
                     Spacer()
                 }
                 .padding(.top, 2.0)
             }
         }
+    }
+    
+    private func dateHasReminders() -> Bool {
+        for reminder in reminders where reminder.date == FRDate(viewModel.selectedDate.year, viewModel.selectedDate.month, day.date.day) {
+            return true
+        }
+        return false
     }
 }
 
