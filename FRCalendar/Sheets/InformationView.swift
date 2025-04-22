@@ -28,15 +28,12 @@ struct InformationView: View {
 
     var body: some View {
         ZStack {
-            Rectangle()
-                .ignoresSafeArea()
-                .foregroundStyle(.white.opacity(0.1))
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0.0) {
                     HStack {
                         Text("About")
                             .font(.system(size: 35.0, weight: .bold))
-                            .foregroundStyle(.white.opacity(0.4))
+                            .foregroundStyle(.gray)
                         Spacer()
                     }
                     .padding(.bottom, 15.0)
@@ -46,11 +43,9 @@ struct InformationView: View {
                 }
                 .padding(.bottom, 30.0)
             }
-            .foregroundStyle(.white.opacity(0.9))
             .padding(.horizontal, 20.0)
             .padding(.top, 30.0)
         }
-        .background(.black)
     }
 }
 

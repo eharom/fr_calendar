@@ -60,7 +60,6 @@ struct FRDatePicker: View {
             Picker(selection: $year, label: Text("Picker"), content: {
                 ForEach(yearRange, id: \.self) { yIndex in
                     Text(verbatim: "\(yIndex)").tag(yIndex)
-                        .foregroundStyle(.white.opacity(0.9))
                 }
             })
             .padding(.trailing, -15.0)
@@ -74,7 +73,6 @@ struct FRDatePicker: View {
             Picker(selection: $month, label: Text("Picker"), content: {
                 ForEach(monthRange, id: \.self) { mIndex in
                     Text("\(monthNameForIndex(mIndex))")
-                        .foregroundStyle(.white.opacity(0.9))
                 }
             })
             .frame(minWidth: 175.0)
@@ -88,7 +86,6 @@ struct FRDatePicker: View {
             Picker(selection: $day, label: Text("Picker"), content: {
                 ForEach(dayRange, id: \.self) { dIndex in
                     Text("\(dIndex)").tag(dIndex)
-                        .foregroundStyle(.white.opacity(0.9))
                 }
             })
             .padding(.leading, -15.0)

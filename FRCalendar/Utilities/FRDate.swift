@@ -12,19 +12,20 @@ struct FRDate: Equatable, Codable {
     var year: Int = 1
     var month: Int = 1
     var day: Int = 1
+//    var hour: Int = 0
+//    var minute: Int = 0
+//    var second: Int = 0
     
     var dayOfYear: Int { (30 * (month - 1)) + day }
     
     var string: String { "\(year.padded)-\(month.padded)-\(day.padded)" }
     
-    var longString : String {
-        return "\(dayName), \(monthName) \(day), \(year)"
-    }
+//    var longString : String { return "\(dayName), \(monthName) \(day), \(year)" }
     
     private var dayName: String {
         switch day % 10 {
         case 1: "Primidi"
-        case 2: "Duoidi"
+        case 2: "Duodi"
         case 3: "Tridi"
         case 4: "Quartidi"
         case 5: "Quintidi"
@@ -54,13 +55,14 @@ struct FRDate: Equatable, Codable {
         default: "\(month)"
         }
     }
-
-
     
-    init(_ y: Int, _ m: Int, _ d: Int) {
+    init(_ y: Int, _ m: Int, _ d: Int, h: Int = 0, min: Int = 0, s: Int = 0) {
         self.year = y
         self.month = m
         self.day = d
+//        self.hour = h
+//        self.minute = min
+//        self.second = s
     }
     
     init() {
@@ -72,6 +74,19 @@ struct FRDate: Equatable, Codable {
     func toGregorian(hour: Int = 0, minute: Int = 0) -> Date {
         let leapYears = Initializer.shared.leapYears.filter { $0 < year }.count
         return Calendar(identifier: .iso8601).date(byAdding: DateComponents(calendar: Calendar(identifier: .iso8601), day: ((year - 1)*365 + (month - 1)*30 + (day - 1) + leapYears), hour: hour, minute: minute), to: Date.referenceDate!)!
+    }
+    
+    func formatted(_ format: DateFormat = .numeric) -> String {
+        switch format {
+        case .complete: "\(dayName), \(monthName) \(day), \(year)"
+        case .long: "\(monthName) \(day), \(year)"
+        case .abbreviated: "\(monthName.prefix(4)) \(day), \(year)"
+        case .numeric: "\(year.padded)-\(month.padded)-\(day.padded)"
+        }
+    }
+    
+    enum DateFormat {
+        case complete, long, abbreviated, numeric
     }
 }
 

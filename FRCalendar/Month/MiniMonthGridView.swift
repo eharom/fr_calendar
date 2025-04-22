@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MiniMonthView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: ViewModel
     var monthIndex: Int
 //    var currentDay: Int?
@@ -16,7 +17,7 @@ struct MiniMonthView: View {
         VStack(spacing: 0.0) {
             HStack {
                 Text(viewModel.months[monthIndex - 1].shortName)
-                    .foregroundStyle((viewModel.selectedDate.year == viewModel.currentDate.year && viewModel.currentDate.month == monthIndex) ? .red : Color(white: 0.9))
+                    .foregroundStyle((viewModel.selectedDate.year == viewModel.currentDate.year && viewModel.currentDate.month == monthIndex) ? .red : colorScheme == .light ? .black : .white)
                     .font(.title3)
                     .bold()
                     .padding(.bottom, 5.0)
@@ -30,7 +31,7 @@ struct MiniMonthView: View {
                             Circle()
                                 .foregroundStyle(viewModel.currentDate == FRDate(viewModel.selectedDate.year, monthIndex, index) ? .red : .clear)
                             Text("\(index)")
-                                .foregroundStyle(Color(white: 0.9))
+                                .foregroundStyle(colorScheme == .light ? .black : .white)
                                 .font(.system(size: 10))
                         }
                     }

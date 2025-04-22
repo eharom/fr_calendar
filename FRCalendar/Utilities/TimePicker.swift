@@ -24,7 +24,6 @@ struct TimePicker: View {
             Picker(selection: $hour, label: Text("Picker"), content: {
                 ForEach(type == .decimal ? (0..<10) : (1..<13), id: \.self) { hIndex in
                     Text("\(hIndex.padded)").tag(hIndex)
-                        .foregroundStyle(.white.opacity(0.9))
                 }
             })
             .padding(.trailing, -15.0)
@@ -35,7 +34,6 @@ struct TimePicker: View {
                 ForEach(0..<(type == .decimal ? 100 : 60), id: \.self) { mIndex in
                     if mIndex % 5 == 0 {
                         Text("\(mIndex.padded)").tag(mIndex)
-                            .foregroundStyle(.white.opacity(0.9))
                     }
                 }
             })
@@ -48,7 +46,6 @@ struct TimePicker: View {
                 Picker(selection: $timeRange, label: Text("Picker"), content: {
                     ForEach(0..<2, id: \.self) { dayHalf in
                         Text(dayHalf == 0 ? "AM" : "PM").tag(dayHalf)
-                            .foregroundStyle(.white.opacity(0.9))
                     }
                 })
                 .padding(.leading, -15.0)

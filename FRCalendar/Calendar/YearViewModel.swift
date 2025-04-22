@@ -12,7 +12,7 @@ class ViewModel: ObservableObject {
     @Published var showConverterView = false
     @Published var showGregorian = false
     @Published var showReminderCreationView = false
-
+    
     @Published var currentDate = FRDate()
     @Published var selectedDate = FRDate()
     @Published var months: [Month] = []
@@ -22,7 +22,7 @@ class ViewModel: ObservableObject {
     let userDefaults = UserDefaults.standard
     let showGregorianKey = "showGregorian"
     let showRomanNumeralsKey = "showRomanNumerals"
-    
+        
     var isLeapYear: Bool {
         Initializer.shared.leapYears.contains(selectedDate.year)
     }

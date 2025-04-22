@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct MonthCalendarView: View {
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) private var context
     @Query private var reminders: [Reminder]
     
@@ -30,12 +31,11 @@ struct MonthCalendarView: View {
                     Text(viewModel.months[viewModel.selectedDate.month - 1].name)
                         .font(.largeTitle)
                         .bold()
-                        .foregroundColor(Color(white: 0.9))
                     Spacer()
                     if viewModel.showGregorian {
                         Text(viewModel.selectedDate.toGregorian().string)
                             .bold()
-                            .foregroundColor(Color(white: 0.5))
+                            .foregroundColor(.gray)
                             .font(.system(size: 20))
                     }
                 }
@@ -48,28 +48,49 @@ struct MonthCalendarView: View {
                 }
             }
             .padding(.horizontal, 10.0)
-            .foregroundColor(Color(white: 0.9))
-            .background(Color(white: 0.1))
+            .background(colorScheme == .light ? Color.lightGray : .darkGray)
             
             GrayDivider()
+//            Divider()
             
             MonthGridView(viewModel: viewModel, month: viewModel.months[viewModel.selectedDate.month - 1], numcolumns: numOfDays)
                 .padding(.horizontal, 10.0)
+                .gesture(DragGesture(minimumDistance: 0.0, coordinateSpace: .local)
+                    .onEnded({ value in
+                        if value.translation.height < 0.0 {
+                            viewModel.selectedDate.day = 1
+                            if viewModel.selectedDate.month == 13 {
+                                viewModel.selectedDate.month = 1
+                                viewModel.selectedDate.year += 1
+                            } else {
+                                viewModel.selectedDate.month += 1
+                            }
+                        }
+                        if value.translation.height > 0.0 {
+                            viewModel.selectedDate.day = 1
+                            if viewModel.selectedDate.month == 1 {
+                                viewModel.selectedDate.month = 13
+                                viewModel.selectedDate.year -= 1
+                            } else {
+                                viewModel.selectedDate.month -= 1
+                            }
+                        }
+                    }))
             
             GrayDivider()
-            
+//            Divider()
             
             List {
                 ForEach(reminders) { reminder in
                     if reminder.date == viewModel.selectedDate {
                         HStack {
-                            Image(systemName: "circlebadge")
-                                .font(.system(size: 23.0))
+    //                            Image(systemName: "circlebadge")
+    //                                .font(.system(size: 23.0))
                             Text("\(reminder.title)")
                                 .font(.system(size: 20.0, weight: .bold))
                                 .lineLimit(1)
-                                Spacer()
-                                Text(reminder.time)
+                            Spacer()
+                            Text(reminder.time)
                         }
                     }
                 }
@@ -80,14 +101,49 @@ struct MonthCalendarView: View {
                 }
             }
             .listStyle(.inset)
-            .padding(.top, 20.0)
+            //                .padding(.top, 20.0)
+            
+//            
+//            
+//            let selectedDateReminders = reminders.filter { $0.date == viewModel.selectedDate }
+//            
+//            if selectedDateReminders.isEmpty {
+//                VStack {
+//                    Spacer()
+//                    Text("No events")
+//                        .font(.title3)
+//                        .foregroundStyle(.gray)
+//                    Spacer()
+//                }
+//            } else {
+//                List {
+//                    ForEach(reminders) { reminder in
+//                        HStack {
+////                            Image(systemName: "circlebadge")
+////                                .font(.system(size: 23.0))
+//                            Text("\(reminder.title)")
+//                                .font(.system(size: 20.0, weight: .bold))
+//                                .lineLimit(1)
+//                            Spacer()
+//                            Text(reminder.time)
+//                        }
+//                    }
+//                    .onDelete { indexes in
+//                        for index in indexes {
+//                            removeReminder(reminders[index])
+//                        }
+//                    }
+//                }
+//                .listStyle(.inset)
+//                .padding(.top, 20.0)
+//            }
             
             HStack {
                 Spacer()
                 Text("\(Initializer.shared.celebrations[viewModel.selectedDate.dayOfYear - 1])")
                     .font(.title2)
                     .bold()
-                    .foregroundStyle(Color(white: 0.4))
+                    .foregroundStyle(.gray)
                     .padding(.top, 10.0)
                 Spacer()
             }
@@ -103,10 +159,7 @@ struct MonthCalendarView: View {
     private func removeReminder(_ reminder: Reminder) {
         context.delete(reminder)
     }
-
 }
-
-
 
 #Preview {
     ContentView()

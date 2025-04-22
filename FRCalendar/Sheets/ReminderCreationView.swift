@@ -68,48 +68,47 @@ struct ReminderCreationView: View {
                         TimePicker(type: $selectedTime, hour: $hour, minute: $minute, timeRange: $halfOfDay)
                     }
                 }
-                Section {
-                    List {
-                        ForEach (reminders) { reminder in
-                            VStack(alignment: .leading) {
-                                Text(reminder.title)
-                                    .font(.title3)
-                                Text("Note: \(reminder.note)")
-                                Text("Date: \(reminder.date.longString)")
-                                Text("At: \(reminder.time)")
-                            }
-                        }
-                        .onDelete { indexes in
-                            for index in indexes {
-                                removeReminder(reminders[index])
-                            }
-                        }
-                    }
-                }
+//                Section {
+//                    List {
+//                        ForEach (reminders) { reminder in
+//                            VStack(alignment: .leading) {
+//                                Text(reminder.title)
+//                                    .font(.title3)
+//                                Text("Note: \(reminder.note)")
+//                                Text("Date: \(reminder.date.longString)")
+//                                Text("At: \(reminder.time)")
+//                            }
+//                        }
+//                        .onDelete { indexes in
+//                            for index in indexes {
+//                                removeReminder(reminders[index])
+//                            }
+//                        }
+//                    }
+//                }
             }
-            .foregroundStyle(.white)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         viewModel.showReminderCreationView = false
-                    }                }
+                    }
+                    .foregroundStyle(.red)
+                }
                 ToolbarItem(placement: .principal) {
                     Text("New")
                         .bold()
-                        .foregroundStyle(.white)
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button("Add") {
                         if title != "" {
                             requestNotificationPermissions()
                             createNotification()
-                            
                             addReminder()
                             viewModel.showReminderCreationView = false
                         }
                     }
                     .bold()
-                    .foregroundStyle(title != "" ? .white : .gray)
+                    .foregroundStyle(title != "" ? .red : .gray)
                 }
             }
         }
@@ -123,7 +122,7 @@ struct ReminderCreationView: View {
                 Spacer()
                 VStack(alignment: .trailing, spacing: 0.0) {
                     if title == "Date" {
-                        Text("\(FRDate(year, month, day).longString)")
+                        Text("\(FRDate(year, month, day).formatted(.complete))")
                             .font(.subheadline)
                             .foregroundStyle(.red)
                         if viewModel.showGregorian {
