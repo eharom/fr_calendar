@@ -32,7 +32,7 @@ struct Provider: TimelineProvider {
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
-
+///mgkdmskdg
 //    func relevances() async -> WidgetRelevances<Void> {
 //        // Generate a list containing the contexts this widget is relevant in.
 //    }
@@ -42,6 +42,7 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
     let emoji: String
 }
+
 
 struct FRCalendarWidgetEntryView : View {
     var entry: Provider.Entry

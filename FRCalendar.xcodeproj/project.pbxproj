@@ -39,9 +39,9 @@
 		48670B8E2D9EF0D9008CB09D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B8B2D9EF0D9008CB09D /* View.swift */; };
 		486E77592DA764FA0094FE9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B2B2D9DF6E6008CB09D /* ContentView.swift */; };
 		486E775B2DA771470094FE9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486E775A2DA7713F0094FE9E /* AppDelegate.swift */; };
-		487561A62DB86ED100EE1628 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 487561A52DB86ED100EE1628 /* WidgetKit.framework */; };
-		487561A82DB86ED100EE1628 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 487561A72DB86ED100EE1628 /* SwiftUI.framework */; };
-		487561B72DB86ED200EE1628 /* FRCalendarWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 487561A32DB86ED100EE1628 /* FRCalendarWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		487561DC2DB873CB00EE1628 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 487561A52DB86ED100EE1628 /* WidgetKit.framework */; };
+		487561DD2DB873CB00EE1628 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 487561A72DB86ED100EE1628 /* SwiftUI.framework */; };
+		487561EC2DB873CC00EE1628 /* FRCalendarWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 487561DB2DB873CB00EE1628 /* FRCalendarWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4886639C2D9F83CC006B6646 /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4886639B2D9F83C1006B6646 /* YearView.swift */; };
 		4886639D2D9F83CC006B6646 /* YearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4886639B2D9F83C1006B6646 /* YearView.swift */; };
 		4886639F2D9F8424006B6646 /* MonthGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4886639E2D9F8415006B6646 /* MonthGridView.swift */; };
@@ -78,11 +78,11 @@
 			remoteGlobalIDString = 48670B252D9DF6E6008CB09D;
 			remoteInfo = FRCalendar;
 		};
-		487561B52DB86ED200EE1628 /* PBXContainerItemProxy */ = {
+		487561EA2DB873CC00EE1628 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 48670B1E2D9DF6E6008CB09D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 487561A22DB86ED100EE1628;
+			remoteGlobalIDString = 487561DA2DB873CB00EE1628;
 			remoteInfo = FRCalendarWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
@@ -94,7 +94,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				487561B72DB86ED200EE1628 /* FRCalendarWidgetExtension.appex in Embed Foundation Extensions */,
+				487561EC2DB873CC00EE1628 /* FRCalendarWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,9 +127,9 @@
 		48670B7A2D9EF0B9008CB09D /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		48670B8B2D9EF0D9008CB09D /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		486E775A2DA7713F0094FE9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		487561A32DB86ED100EE1628 /* FRCalendarWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FRCalendarWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		487561A52DB86ED100EE1628 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		487561A72DB86ED100EE1628 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		487561DB2DB873CB00EE1628 /* FRCalendarWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FRCalendarWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4886639B2D9F83C1006B6646 /* YearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearView.swift; sourceTree = "<group>"; };
 		4886639E2D9F8415006B6646 /* MonthGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGridView.swift; sourceTree = "<group>"; };
 		488663A12D9F8531006B6646 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
@@ -143,17 +143,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		487561B82DB86ED200EE1628 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		487561ED2DB873CC00EE1628 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 487561A22DB86ED100EE1628 /* FRCalendarWidgetExtension */;
+			target = 487561DA2DB873CB00EE1628 /* FRCalendarWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		487561A92DB86ED100EE1628 /* FRCalendarWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (487561B82DB86ED200EE1628 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FRCalendarWidget; sourceTree = "<group>"; };
+		487561DE2DB873CB00EE1628 /* FRCalendarWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (487561ED2DB873CC00EE1628 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FRCalendarWidget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,12 +178,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		487561A02DB86ED100EE1628 /* Frameworks */ = {
+		487561D82DB873CB00EE1628 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				487561A82DB86ED100EE1628 /* SwiftUI.framework in Frameworks */,
-				487561A62DB86ED100EE1628 /* WidgetKit.framework in Frameworks */,
+				487561DD2DB873CB00EE1628 /* SwiftUI.framework in Frameworks */,
+				487561DC2DB873CB00EE1628 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +206,7 @@
 				48670B282D9DF6E6008CB09D /* FRCalendar */,
 				48670B3A2D9DF6E8008CB09D /* FRCalendarTests */,
 				48670B442D9DF6E8008CB09D /* FRCalendarUITests */,
-				487561A92DB86ED100EE1628 /* FRCalendarWidget */,
+				487561DE2DB873CB00EE1628 /* FRCalendarWidget */,
 				487561A42DB86ED100EE1628 /* Frameworks */,
 				48670B272D9DF6E6008CB09D /* Products */,
 			);
@@ -218,7 +218,7 @@
 				48670B262D9DF6E6008CB09D /* FRCalendar.app */,
 				48670B372D9DF6E8008CB09D /* FRCalendarTests.xctest */,
 				48670B412D9DF6E8008CB09D /* FRCalendarUITests.xctest */,
-				487561A32DB86ED100EE1628 /* FRCalendarWidgetExtension.appex */,
+				487561DB2DB873CB00EE1628 /* FRCalendarWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				487561B62DB86ED200EE1628 /* PBXTargetDependency */,
+				487561EB2DB873CC00EE1628 /* PBXTargetDependency */,
 			);
 			name = FRCalendar;
 			productName = FRCalendar;
@@ -381,26 +381,26 @@
 			productReference = 48670B412D9DF6E8008CB09D /* FRCalendarUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		487561A22DB86ED100EE1628 /* FRCalendarWidgetExtension */ = {
+		487561DA2DB873CB00EE1628 /* FRCalendarWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 487561B92DB86ED200EE1628 /* Build configuration list for PBXNativeTarget "FRCalendarWidgetExtension" */;
+			buildConfigurationList = 487561EE2DB873CC00EE1628 /* Build configuration list for PBXNativeTarget "FRCalendarWidgetExtension" */;
 			buildPhases = (
-				4875619F2DB86ED100EE1628 /* Sources */,
-				487561A02DB86ED100EE1628 /* Frameworks */,
-				487561A12DB86ED100EE1628 /* Resources */,
+				487561D72DB873CB00EE1628 /* Sources */,
+				487561D82DB873CB00EE1628 /* Frameworks */,
+				487561D92DB873CB00EE1628 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				487561A92DB86ED100EE1628 /* FRCalendarWidget */,
+				487561DE2DB873CB00EE1628 /* FRCalendarWidget */,
 			);
 			name = FRCalendarWidgetExtension;
 			packageProductDependencies = (
 			);
 			productName = FRCalendarWidgetExtension;
-			productReference = 487561A32DB86ED100EE1628 /* FRCalendarWidgetExtension.appex */;
+			productReference = 487561DB2DB873CB00EE1628 /* FRCalendarWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -424,7 +424,7 @@
 						CreatedOnToolsVersion = 15.0.1;
 						TestTargetID = 48670B252D9DF6E6008CB09D;
 					};
-					487561A22DB86ED100EE1628 = {
+					487561DA2DB873CB00EE1628 = {
 						CreatedOnToolsVersion = 16.3;
 					};
 				};
@@ -445,7 +445,7 @@
 				48670B252D9DF6E6008CB09D /* FRCalendar */,
 				48670B362D9DF6E8008CB09D /* FRCalendarTests */,
 				48670B402D9DF6E8008CB09D /* FRCalendarUITests */,
-				487561A22DB86ED100EE1628 /* FRCalendarWidgetExtension */,
+				487561DA2DB873CB00EE1628 /* FRCalendarWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -476,7 +476,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		487561A12DB86ED100EE1628 /* Resources */ = {
+		487561D92DB873CB00EE1628 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -554,7 +554,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4875619F2DB86ED100EE1628 /* Sources */ = {
+		487561D72DB873CB00EE1628 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -574,10 +574,10 @@
 			target = 48670B252D9DF6E6008CB09D /* FRCalendar */;
 			targetProxy = 48670B422D9DF6E8008CB09D /* PBXContainerItemProxy */;
 		};
-		487561B62DB86ED200EE1628 /* PBXTargetDependency */ = {
+		487561EB2DB873CC00EE1628 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 487561A22DB86ED100EE1628 /* FRCalendarWidgetExtension */;
-			targetProxy = 487561B52DB86ED200EE1628 /* PBXContainerItemProxy */;
+			target = 487561DA2DB873CB00EE1628 /* FRCalendarWidgetExtension */;
+			targetProxy = 487561EA2DB873CC00EE1628 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -872,7 +872,7 @@
 			};
 			name = Release;
 		};
-		487561BA2DB86ED200EE1628 /* Debug */ = {
+		487561EF2DB873CC00EE1628 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -901,7 +901,7 @@
 			};
 			name = Debug;
 		};
-		487561BB2DB86ED200EE1628 /* Release */ = {
+		487561F02DB873CC00EE1628 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -970,11 +970,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		487561B92DB86ED200EE1628 /* Build configuration list for PBXNativeTarget "FRCalendarWidgetExtension" */ = {
+		487561EE2DB873CC00EE1628 /* Build configuration list for PBXNativeTarget "FRCalendarWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				487561BA2DB86ED200EE1628 /* Debug */,
-				487561BB2DB86ED200EE1628 /* Release */,
+				487561EF2DB873CC00EE1628 /* Debug */,
+				487561F02DB873CC00EE1628 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
