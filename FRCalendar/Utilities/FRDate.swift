@@ -22,7 +22,7 @@ struct FRDate: Equatable, Codable {
     
 //    var longString : String { return "\(dayName), \(monthName) \(day), \(year)" }
     
-    private var dayName: String {
+    var dayName: String {
         switch day % 10 {
         case 1: "Primidi"
         case 2: "Duodi"
@@ -37,7 +37,7 @@ struct FRDate: Equatable, Codable {
         default: "\(day)"
         }
     }
-    private var monthName: String {
+    var monthName: String {
         switch month {
         case 1: "Vendémiarie"
         case 2: "Brumaire"

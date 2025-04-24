@@ -17,6 +17,11 @@
 		48535D972DAD699100AAB5D6 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48535D962DAD698E00AAB5D6 /* Global.swift */; };
 		48535D992DAD91DA00AAB5D6 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48535D982DAD91D600AAB5D6 /* UIDevice.swift */; };
 		48535D9A2DAD91DA00AAB5D6 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48535D982DAD91D600AAB5D6 /* UIDevice.swift */; };
+		48599A222DB9DCBD00321C4A /* FRDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B542D9DF72F008CB09D /* FRDate.swift */; };
+		48599A232DB9DCC200321C4A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B562D9DF739008CB09D /* Date.swift */; };
+		48599A242DB9DCC600321C4A /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B8B2D9EF0D9008CB09D /* View.swift */; };
+		48599A252DB9DCD000321C4A /* frcal_leap.txt in Resources */ = {isa = PBXBuildFile; fileRef = 48670B5A2D9DFC93008CB09D /* frcal_leap.txt */; };
+		48599A262DB9DCF100321C4A /* rural_calendar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4847148C2DA6C8CC0062E38C /* rural_calendar.txt */; };
 		48670B2A2D9DF6E6008CB09D /* FRCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B292D9DF6E6008CB09D /* FRCalendarApp.swift */; };
 		48670B2C2D9DF6E6008CB09D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48670B2B2D9DF6E6008CB09D /* ContentView.swift */; };
 		48670B2E2D9DF6E8008CB09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48670B2D2D9DF6E8008CB09D /* Assets.xcassets */; };
@@ -480,6 +485,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48599A262DB9DCF100321C4A /* rural_calendar.txt in Resources */,
+				48599A252DB9DCD000321C4A /* frcal_leap.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +565,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48599A232DB9DCC200321C4A /* Date.swift in Sources */,
+				48599A242DB9DCC600321C4A /* View.swift in Sources */,
+				48599A222DB9DCBD00321C4A /* FRDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
