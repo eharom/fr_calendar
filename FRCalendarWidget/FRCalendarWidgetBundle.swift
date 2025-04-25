@@ -10,9 +10,11 @@ import SwiftUI
 
 @main
 struct FRCalendarWidgetBundle: WidgetBundle {
+    
     var body: some Widget {
         FRCalendarWidget()
-        FRCalendarWidgetControl()
-        FRCalendarWidgetLiveActivity()
+        MonthGridWidget()
+        InlineDateWidget()
+        AccesoryDateWidget()
     }
 }

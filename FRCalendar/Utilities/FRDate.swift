@@ -12,6 +12,8 @@ struct FRDate: Equatable, Codable {
     var year: Int = 1
     var month: Int = 1
     var day: Int = 1
+    var isLeapYear: Bool { Initializer.shared.leapYears.contains(year) }
+    var celebration: String { Initializer.shared.celebrations[FRDate(year, month, day).dayOfYear - 1] }
 //    var hour: Int = 0
 //    var minute: Int = 0
 //    var second: Int = 0
@@ -53,6 +55,18 @@ struct FRDate: Equatable, Codable {
         case 12: "Fructidor"
         case 13: "Sansculottides"
         default: "\(month)"
+        }
+    }
+    
+    var sansculottides: String {
+        switch day {
+        case 1: "Day of Virtue"
+        case 2: "Day of Ingenuity"
+        case 3: "Day of Labor"
+        case 4: "Day of Opinions"
+        case 5: "Day of Rewards"
+        case 6: "Day of Revolution"
+        default: "\(day)"
         }
     }
     
