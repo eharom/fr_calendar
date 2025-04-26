@@ -21,9 +21,7 @@ struct FRDate: Equatable, Codable {
     var dayOfYear: Int { (30 * (month - 1)) + day }
     
     var string: String { "\(year.padded)-\(month.padded)-\(day.padded)" }
-    
-//    var longString : String { return "\(dayName), \(monthName) \(day), \(year)" }
-    
+        
     var dayName: String {
         switch day % 10 {
         case 1: "Primidi"
@@ -57,7 +55,6 @@ struct FRDate: Equatable, Codable {
         default: "\(month)"
         }
     }
-    
     var sansculottides: String {
         switch day {
         case 1: "Day of Virtue"
@@ -119,7 +116,6 @@ struct Converter {
         return returnString
     }
 }
-
 
 class Initializer {
     static let shared = Initializer()

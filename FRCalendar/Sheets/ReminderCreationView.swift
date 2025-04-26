@@ -23,7 +23,7 @@ struct ReminderCreationView: View {
     @State private var title = ""
     @State private var note = ""
     private var date: FRDate { return FRDate(year, month, day) }
-    private var time: String { return "\(hour):\(minute) \(halfOfDay == 0 ? "a.m." : "p.m.")" }
+    private var time: String { return "\(hour):\(minute.padded) \(halfOfDay == 0 ? "a.m." : "p.m.")" }
     private var repeats: Bool { return repetition != "Never" ? true : false }
     @State private var frequency = 2
     @State private var timeUnit = "Day"
