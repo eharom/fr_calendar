@@ -14,7 +14,7 @@ struct MonthCalendarView: View {
     @Query private var reminders: [Reminder]
     
     @ObservedObject var viewModel: ViewModel
-    var daysOfTheWeek = ["P", "D", "T", "C", "Q", "S", "S", "O", "N", "D"]
+    var daysOfTheWeek = ["P", "D", "T", "Q", "Q", "S", "S", "O", "N", "D"]
     var numOfDays: Int {
         if viewModel.selectedDate.month == 13 && viewModel.isLeapYear {
             return 6
@@ -101,7 +101,7 @@ struct MonthCalendarView: View {
                 }
             }
             .listStyle(.inset)
-            //                .padding(.top, 20.0)
+            .padding(.top, 20.0)
             
 //            
 //            
