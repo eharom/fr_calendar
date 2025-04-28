@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TimePicker: View {
+struct FRTimePicker: View {
     @Binding var type: System
 
     @Binding var hour: Int

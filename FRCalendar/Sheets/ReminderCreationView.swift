@@ -48,7 +48,7 @@ struct ReminderCreationView: View {
     @State private var endYear = FRDate().year
     @State private var endMonth = FRDate().month
     @State private var endDay = FRDate().day
-    @State private var selectedTime: TimePicker.System = .standard
+    @State private var selectedTime: FRTimePicker.System = .decimal
     @State private var hour = 6
     @State private var minute = 30
     @State private var halfOfDay = 0
@@ -65,7 +65,7 @@ struct ReminderCreationView: View {
                     }
                     createSelectorFor("Time")
                     if timeWasClicked {
-                        TimePicker(type: $selectedTime, hour: $hour, minute: $minute, timeRange: $halfOfDay)
+                        FRTimePicker(type: $selectedTime, hour: $hour, minute: $minute, timeRange: $halfOfDay)
                     }
                 }
 //                Section {
@@ -187,7 +187,6 @@ struct ReminderCreationView: View {
         
         UNUserNotificationCenter.current().add(request)
     }
-
 }
 
 

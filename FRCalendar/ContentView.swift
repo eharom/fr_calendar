@@ -98,29 +98,41 @@ struct FooterView: View {
     @ObservedObject var viewModel: ViewModel
     var body: some View {
 //        GrayDivider()
-        HStack {
-            Button(action: {
-                if viewModel.selectedYearIsCurrentYear() {
-                    viewModel.isMonthView = true
-                } else {
-                    viewModel.selectedDate.year = viewModel.currentDate.year
+        ZStack {
+            HStack {
+                Button(action: {
+                    if viewModel.selectedYearIsCurrentYear() {
+                        viewModel.isMonthView = true
+                    } else {
+                        viewModel.selectedDate.year = viewModel.currentDate.year
+                    }
+                    viewModel.selectedDate = viewModel.currentDate
+                }, label: { Text("Today") })
+                .foregroundStyle(.red)
+                
+                Spacer()
+                
+                Button(action: {
+                    viewModel.showReminderCreationView = true
+                }, label: { Image(systemName: "plus").foregroundStyle(.red) })
+                .sheet(isPresented: $viewModel.showReminderCreationView) {
+                    ReminderCreationView(viewModel: viewModel)
                 }
-                viewModel.selectedDate = viewModel.currentDate
-            }, label: { Text("Today") })
-            .foregroundStyle(.red)
-            Spacer()
-            Button(action: {
-                viewModel.showReminderCreationView = true
-            }, label: { Image(systemName: "plus").foregroundStyle(.red) })
-            .sheet(isPresented: $viewModel.showReminderCreationView) {
-                ReminderCreationView(viewModel: viewModel)
+            }
+            .padding(.horizontal, 15.0)
+            .padding(.top, 15.0)
+            .background(colorScheme == .light ? Color.lightGray : .darkGray)
+            
+            HStack {
+                Spacer()
+                Text(viewModel.frTime)
+                    .bold()
+                    .foregroundStyle(.gray)
+                    .padding(.top, 15.0)
+                Spacer()
             }
         }
-        .padding(.horizontal, 15.0)
-        .padding(.top, 15.0)
-        .background(colorScheme == .light ? Color.lightGray : .darkGray)
         .font(.title3)
-
     }
 }
 

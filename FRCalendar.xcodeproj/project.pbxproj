@@ -12,8 +12,8 @@
 		4847148D2DA6C8CC0062E38C /* rural_calendar.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4847148C2DA6C8CC0062E38C /* rural_calendar.txt */; };
 		484D4E842DAF364300A2392D /* ReminderCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D4E832DAF363600A2392D /* ReminderCreationView.swift */; };
 		484D4E852DAF364300A2392D /* ReminderCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D4E832DAF363600A2392D /* ReminderCreationView.swift */; };
-		484D4E872DB028DE00A2392D /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D4E862DB0287A00A2392D /* TimePicker.swift */; };
-		484D4E882DB028DE00A2392D /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D4E862DB0287A00A2392D /* TimePicker.swift */; };
+		484D4E872DB028DE00A2392D /* FRTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D4E862DB0287A00A2392D /* FRTimePicker.swift */; };
+		484D4E882DB028DE00A2392D /* FRTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D4E862DB0287A00A2392D /* FRTimePicker.swift */; };
 		48535D972DAD699100AAB5D6 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48535D962DAD698E00AAB5D6 /* Global.swift */; };
 		48535D992DAD91DA00AAB5D6 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48535D982DAD91D600AAB5D6 /* UIDevice.swift */; };
 		48535D9A2DAD91DA00AAB5D6 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48535D982DAD91D600AAB5D6 /* UIDevice.swift */; };
@@ -110,7 +110,7 @@
 		480A20292DB60B08009C407D /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4847148C2DA6C8CC0062E38C /* rural_calendar.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = rural_calendar.txt; sourceTree = "<group>"; };
 		484D4E832DAF363600A2392D /* ReminderCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCreationView.swift; sourceTree = "<group>"; };
-		484D4E862DB0287A00A2392D /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
+		484D4E862DB0287A00A2392D /* FRTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRTimePicker.swift; sourceTree = "<group>"; };
 		48535D962DAD698E00AAB5D6 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		48535D982DAD91D600AAB5D6 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		48670B262D9DF6E6008CB09D /* FRCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FRCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -309,7 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				48CC0F6C2DAA34DA00E4879C /* FRDatePicker.swift */,
-				484D4E862DB0287A00A2392D /* TimePicker.swift */,
+				484D4E862DB0287A00A2392D /* FRTimePicker.swift */,
 				480A20292DB60B08009C407D /* Color.swift */,
 				48535D982DAD91D600AAB5D6 /* UIDevice.swift */,
 				48670B8B2D9EF0D9008CB09D /* View.swift */,
@@ -507,7 +507,7 @@
 				488663A32D9F8535006B6646 /* DayView.swift in Sources */,
 				486E775B2DA771470094FE9E /* AppDelegate.swift in Sources */,
 				48670B842D9EF0B9008CB09D /* Month.swift in Sources */,
-				484D4E872DB028DE00A2392D /* TimePicker.swift in Sources */,
+				484D4E872DB028DE00A2392D /* FRTimePicker.swift in Sources */,
 				48535D972DAD699100AAB5D6 /* Global.swift in Sources */,
 				48670B2C2D9DF6E6008CB09D /* ContentView.swift in Sources */,
 				48670B552D9DF72F008CB09D /* FRDate.swift in Sources */,
@@ -531,7 +531,7 @@
 				48535D9A2DAD91DA00AAB5D6 /* UIDevice.swift in Sources */,
 				48EDCB952DAC168500D1A861 /* ConverterView.swift in Sources */,
 				486E77592DA764FA0094FE9E /* ContentView.swift in Sources */,
-				484D4E882DB028DE00A2392D /* TimePicker.swift in Sources */,
+				484D4E882DB028DE00A2392D /* FRTimePicker.swift in Sources */,
 				48670B592D9DF829008CB09D /* Date.swift in Sources */,
 				4886639F2D9F8424006B6646 /* MonthGridView.swift in Sources */,
 				488663A52DA06463006B6646 /* MonthView.swift in Sources */,
