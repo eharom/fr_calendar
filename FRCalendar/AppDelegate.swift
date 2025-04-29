@@ -20,6 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                          selector: #selector(applicationDidBecomeActive),
                          name: UIApplication.didBecomeActiveNotification,
                          object: nil)
+        print(UIDevice.smallScreen)
         return true
     }
     

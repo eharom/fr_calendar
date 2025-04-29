@@ -8,5 +8,7 @@
 import UIKit
 
 extension UIDevice {
-//    static var 
+    static var smallScreen: Bool {
+        UIDevice.current.name.contains("SE") || UIDevice.current.name.contains("iPad")
+    }
 }

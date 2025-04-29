@@ -35,13 +35,13 @@ struct YearCalendarView: View {
                             .foregroundStyle(.gray)
                     }
                 }
-                .padding(.vertical, 5.0)
+                .padding(.vertical, UIDevice.smallScreen ? 0.0 : 5.0)
                 
 //                Divider().padding(.bottom, 10.0)
-                GrayDivider().padding(.bottom, 10.0)
+                GrayDivider().padding(.bottom, UIDevice.smallScreen ? 0.0 : 10.0)
                 
                 //            Mini month cards for months 1 - 12
-                LazyVGrid(columns: columns, spacing: 15.0) {
+                LazyVGrid(columns: columns, spacing: UIDevice.smallScreen ? 0.0 : 15.0) {
                     ForEach(1..<13) { i in
                         MiniMonthView(viewModel: viewModel, monthIndex: i)
                             .onTapGesture {
