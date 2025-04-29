@@ -20,7 +20,7 @@ struct MiniMonthView: View {
                     .foregroundStyle((viewModel.selectedDate.year == viewModel.currentDate.year && viewModel.currentDate.month == monthIndex) ? .red : colorScheme == .light ? .black : .white)
                     .font(.title3)
                     .bold()
-                    .padding(.bottom, 5.0)
+                    .padding(.bottom, UIDevice.smallScreen ? 0.0 : 5.0)
                 Spacer()
             }
             ForEach(0..<6) { row in
@@ -41,3 +41,6 @@ struct MiniMonthView: View {
     }
 }
 
+#Preview {
+    ContentView()
+}

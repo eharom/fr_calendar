@@ -89,6 +89,7 @@ struct HeaderView: View {
         }
         .padding(.horizontal, 15.0)
         .padding(.bottom, 15.0)
+        .padding(.top, UIDevice.smallScreen ? 15.0 : 0.0)
         .background(colorScheme == .light ? Color.lightGray : .darkGray)
         .font(.title2)
     }
@@ -118,6 +119,7 @@ struct FooterView: View {
         }
         .padding(.horizontal, 15.0)
         .padding(.top, 15.0)
+        .padding(.bottom, UIDevice.smallScreen ? 15.0 : 0.0)
         .background(colorScheme == .light ? Color.lightGray : .darkGray)
         .font(.title3)
 
