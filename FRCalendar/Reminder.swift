@@ -35,33 +35,73 @@ import SwiftData
         self.timeUnit = "\(timeUnit)\(frequency == 1 ? "" : "s")"
         self.repetitionEnd = repetitionEnd
         self.timesRepeated = timesRepeated
-        self.endDate = endDate
+        self.endDate = repetitionEnd == "Never" ? FRDate(334, 13, 6) : endDate
         
+        
+        
+//        if repetition != "Never" {
+//            if repetition == "Everyday" {
+//                self.frequency = 1
+//                self.timeUnit = "day"
+//            }
+//            if repetition == "Every week" {
+//                self.frequency = 1
+//                self.timeUnit = "week"
+//            }
+//            if repetition == "Every month" {
+//                self.frequency = 1
+//                self.timeUnit = "month"
+//            }
+//            if repetition == "Every 3 months" {
+//                self.frequency = 3
+//                self.timeUnit = "months"
+//            }
+//            if repetition == "Every 6 months" {
+//                self.frequency = 6
+//                self.timeUnit = "months"
+//            }
+//            if repetition == "Every year" {
+//                self.frequency = 1
+//                self.timeUnit = "year"
+//            }
+//        }
+    }
+    
+    func shouldTrigger(on date: FRDate) -> Bool {
         if repetition != "Never" {
+            if repetitionEnd == "Never" {
+//                print("\(title), \(endDate.formatted(.numeric))")
+//                endDate = FRDate(334, 13, 6)
+            }
             if repetition == "Everyday" {
-                self.frequency = 1
-                self.timeUnit = "day"
+                if date >= self.date && date <= endDate{
+                    return true
+                }
+                return false
             }
             if repetition == "Every week" {
-                self.frequency = 1
-                self.timeUnit = "week"
+                if date >= self.date && date <= endDate && date.day % 10 == self.date.day % 10{
+                    return true
+                }
+                return false
             }
             if repetition == "Every month" {
-                self.frequency = 1
-                self.timeUnit = "month"
-            }
-            if repetition == "Every 3 months" {
-                self.frequency = 3
-                self.timeUnit = "months"
-            }
-            if repetition == "Every 6 months" {
-                self.frequency = 6
-                self.timeUnit = "months"
+//                print(date.day, self.date.day, date >= self.date)
+                if date >= self.date && date <= endDate && date.day == self.date.day {
+                    return true
+                }
+                return false
             }
             if repetition == "Every year" {
-                self.frequency = 1
-                self.timeUnit = "year"
+                if date >= self.date && date <= endDate && date.month == self.date.month && date.day == self.date.day {
+                    return true
+                }
+                return false
             }
+
+        } else if date == self.date {
+            return true
         }
+        return false
     }
 }

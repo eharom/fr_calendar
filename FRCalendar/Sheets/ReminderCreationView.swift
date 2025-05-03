@@ -34,10 +34,10 @@ struct ReminderCreationView: View {
     
     
     @State private var repetition = "Never"
-    let repetitionOptions = ["Never", "Everyday", "Every week", "Every month", "Every 3 months", "Every 6 months", "Every year", "Personalized"]
+    let repetitionOptions = ["Never", "Everyday", "Every week", "Every month", "Every year"]
     
     @State private var repetitionEnd = "Never"
-    let repetitionEndOptions = ["Never", "After repeating", "After a date"]
+    let repetitionEndOptions = ["Never", "After a date"]
     
     let repetitionUnits = ["Day", "Week", "Month", "Year"]
     
@@ -68,6 +68,76 @@ struct ReminderCreationView: View {
                         TimePicker(type: $selectedTime, hour: $hour, minute: $minute, timeRange: $halfOfDay)
                     }
                 }
+                
+                Section {
+                    HStack {
+                        Image(systemName: "repeat")
+                        Picker("Repeat", selection: $repetition) {
+                            ForEach(repetitionOptions, id: \.self) {
+                                Text($0)
+                                    .foregroundStyle(.gray)
+                            }
+                        }
+                        .pickerStyle(.navigationLink)
+                    }
+
+                    if repetition == "Personalized" {
+                        Picker("", selection: $timeUnit) {
+                            ForEach(repetitionUnits, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        Stepper("Every \(frequency) \(timeUnit.lowercased())s", value: $frequency, in: 2...100)
+                    }
+                }
+                if repetition != "Never" {
+                    Picker("End repetition", selection: $repetitionEnd) {
+                        ForEach(repetitionEndOptions, id: \.self) {
+                            Text($0)
+                                .foregroundStyle(.gray)
+                        }
+                    }
+                    .pickerStyle(.navigationLink)
+                    if repetitionEnd == "After repeating"{
+                        Stepper("After repeating \(timesRepeated) time\(timesRepeated == 1 ? "" : "s")", value: $timesRepeated, in: 1...99)
+
+                    }
+                    if repetitionEnd == "After a date"{
+                        ZStack {
+                            HStack {
+                                Text("End after")
+                                Spacer()
+                                VStack(alignment: .trailing, spacing: 0.0) {
+                                    Text("\(FRDate(endYear, endMonth, endDay).formatted(.complete))")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.red)
+                                    if viewModel.showGregorian {
+                                        Text("\(FRDate(endYear, endMonth, endDay).toGregorian().formatted(date: .complete, time: .omitted))")
+                                            .font(.caption)
+                                            .foregroundStyle(.gray)
+                                    }
+                                }
+
+                            }
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            endDateWasClicked.toggle()
+                            dateWasClicked = false
+                            timeWasClicked = false
+                        }
+                        if endDateWasClicked {
+                            FRDatePicker(type: $selectedCal, year: $endYear, month: $endMonth, day: $endDay)
+                        }
+                    }
+                }
+
+                
+                
+                
+                
+                
 //                Section {
 //                    List {
 //                        ForEach (reminders) { reminder in
@@ -101,10 +171,10 @@ struct ReminderCreationView: View {
                 ToolbarItem(placement: .primaryAction) {
                     Button("Add") {
                         if title != "" {
+                            viewModel.showReminderCreationView = false
                             requestNotificationPermissions()
                             createNotification()
                             addReminder()
-                            viewModel.showReminderCreationView = false
                         }
                     }
                     .bold()
@@ -187,9 +257,11 @@ struct ReminderCreationView: View {
         
         UNUserNotificationCenter.current().add(request)
     }
-
 }
 
+#Preview {
+    ContentView()
+}
 
 
 

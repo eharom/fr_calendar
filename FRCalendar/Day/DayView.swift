@@ -40,8 +40,11 @@ struct DayCalendarView: View {
     }
     
     var dateHasReminder: Bool {
-        for reminder in reminders where reminder.date == FRDate(viewModel.selectedDate.year, viewModel.selectedDate.month, day.date.day) {
-            return true
+        print("\(day.date.formatted(.numeric))")
+        for reminder in reminders {
+            if reminder.shouldTrigger(on: day.date) {
+                return true
+            }
         }
         return false
     }

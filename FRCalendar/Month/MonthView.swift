@@ -82,7 +82,7 @@ struct MonthCalendarView: View {
             
             List {
                 ForEach(reminders) { reminder in
-                    if reminder.date == viewModel.selectedDate {
+                    if reminder.shouldTrigger(on: viewModel.selectedDate) {
                         HStack {
     //                            Image(systemName: "circlebadge")
     //                                .font(.system(size: 23.0))

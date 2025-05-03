@@ -99,6 +99,56 @@ struct FRDate: Equatable, Codable {
     enum DateFormat {
         case complete, long, abbreviated, numeric
     }
+    
+    static func < (lhs: FRDate, rhs: FRDate) -> Bool {
+        if lhs.year < rhs.year {
+            return true
+        } else if lhs.year == rhs.year {
+            if lhs.month < rhs.month {
+                return true
+            } else if lhs.month == rhs.month {
+                return lhs.day < rhs.day
+            }
+        }
+        return false
+    }
+    static func <= (lhs: FRDate, rhs: FRDate) -> Bool {
+        if lhs.year < rhs.year {
+            return true
+        } else if lhs.year == rhs.year {
+            if lhs.month < rhs.month {
+                return true
+            } else if lhs.month == rhs.month {
+                return lhs.day <= rhs.day
+            }
+        }
+        return false
+    }
+    
+    static func > (lhs: FRDate, rhs: FRDate) -> Bool {
+        if lhs.year > rhs.year {
+            return true
+        } else if lhs.year == rhs.year {
+            if lhs.month > rhs.month {
+                return true
+            } else if lhs.month == rhs.month {
+                return lhs.day > rhs.day
+            }
+        }
+        return false
+    }
+    static func >= (lhs: FRDate, rhs: FRDate) -> Bool {
+        if lhs.year > rhs.year {
+            return true
+        } else if lhs.year == rhs.year {
+            if lhs.month > rhs.month {
+                return true
+            } else if lhs.month == rhs.month {
+                return lhs.day >= rhs.day
+            }
+        }
+        return false
+    }
 }
 
 struct Converter {

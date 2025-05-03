@@ -114,3 +114,35 @@ final class FRCalendarTests: XCTestCase {
     }
 }
 
+final class FRDateComparisonTests: XCTestCase {
+    let lhs = [
+        FRDate(233, 1, 1),
+        FRDate(233, 1, 30),
+        FRDate(233, 12, 30),
+        FRDate(233, 13, 1),
+        FRDate(233, 13, 5),
+        FRDate(234, 1, 1),
+        FRDate(234, 13, 6),
+        FRDate(235, 1, 1),
+        FRDate(235, 12, 30),
+        FRDate(235, 13, 1),
+    ]
+    
+    let rhs = [
+        FRDate(233, 1, 2),
+        FRDate(233, 2, 2),
+        FRDate(233, 13, 5),
+        FRDate(233, 12, 30),
+        FRDate(233, 13, 5),
+        FRDate(234, 1, 1),
+        FRDate(234, 13, 6),
+        FRDate(235, 1, 1),
+        FRDate(235, 12, 30),
+        FRDate(235, 13, 1),
+    ]
+    func testGivenTwoRepublicanDatesWhenComparedToCheckEarlierDateThenCorrect() {
+        XCTAssertEqual(FRDate(233, 8, 11) <= FRDate(233, 9, 1), true)
+    }
+}
+
+

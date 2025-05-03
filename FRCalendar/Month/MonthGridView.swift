@@ -28,7 +28,7 @@ struct MonthGridView: View {
                 DayCalendarView(viewModel: viewModel, day: month.days[i])
                     .onTapGesture {
                         viewModel.selectedDate.day = i + 1
-                        print(month.days[i].date)
+                        print(month.days[i].date.formatted(.numeric))
                     }
             }
         }
