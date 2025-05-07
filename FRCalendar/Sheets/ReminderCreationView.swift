@@ -22,7 +22,7 @@ struct ReminderCreationView: View {
     
     @State private var title = ""
     @State private var note = ""
-    private var date: FRDate { return FRDate(year, month, day) }
+    private var date: FRDate { return FRDate(viewModel.pickerYearStart, viewModel.pickerMonthStart, viewModel.pickerDayStart) }
     private var time: String { return "\(hour):\(minute.padded) \(halfOfDay == 0 ? "a.m." : "p.m.")" }
     private var repeats: Bool { return repetition != "Never" ? true : false }
     @State private var frequency = 2
@@ -41,10 +41,17 @@ struct ReminderCreationView: View {
     
     let repetitionUnits = ["Day", "Week", "Month", "Year"]
     
+    var selectedY: Int {
+        viewModel.selectedDate.year
+    }
+    var selectedM: Int {
+        viewModel.selectedDate.month
+    }
+    var selectedD: Int {
+        viewModel.selectedDate.day
+    }
+    
     @State private var selectedCal: FRDatePicker.CalType = .republican
-    @State private var year = FRDate().year
-    @State private var month = FRDate().month
-    @State private var day = FRDate().day
     @State private var endYear = FRDate().year
     @State private var endMonth = FRDate().month
     @State private var endDay = FRDate().day
@@ -61,7 +68,7 @@ struct ReminderCreationView: View {
                 Section {
                     createSelectorFor("Date")
                     if dateWasClicked {
-                        FRDatePicker(type: $selectedCal, year: $year, month: $month, day: $day)
+                        FRDatePicker(type: $selectedCal, year: $viewModel.pickerYearStart, month: $viewModel.pickerMonthStart, day: $viewModel.pickerDayStart)
                     }
                     createSelectorFor("Time")
                     if timeWasClicked {
@@ -92,7 +99,7 @@ struct ReminderCreationView: View {
                     Button("Cancel") {
                         viewModel.showReminderCreationView = false
                     }
-                    .foregroundStyle(.red)
+                    .foregroundStyle(.blue)
                 }
                 ToolbarItem(placement: .principal) {
                     Text("New")
@@ -108,7 +115,7 @@ struct ReminderCreationView: View {
                         }
                     }
                     .bold()
-                    .foregroundStyle(title != "" ? .red : .gray)
+                    .foregroundStyle(title != "" ? .blue : .gray)
                 }
             }
         }
@@ -122,18 +129,18 @@ struct ReminderCreationView: View {
                 Spacer()
                 VStack(alignment: .trailing, spacing: 0.0) {
                     if title == "Date" {
-                        Text("\(FRDate(year, month, day).formatted(.complete))")
+                        Text("\(FRDate(viewModel.pickerYearStart, viewModel.pickerMonthStart, viewModel.pickerDayStart).formatted(.complete))")
                             .font(.subheadline)
-                            .foregroundStyle(.red)
+                            .foregroundStyle(.blue)
                         if viewModel.showGregorian {
-                            Text("\(FRDate(year, month, day).toGregorian().formatted(date: .complete, time: .omitted))")
+                            Text("\(FRDate(viewModel.pickerYearStart, viewModel.pickerMonthStart, viewModel.pickerDayStart).toGregorian().formatted(date: .complete, time: .omitted))")
                                 .font(.caption)
                                 .foregroundStyle(.gray)
                         }
                     } else {
                         Text("\(hour):\(minute.padded) \(halfOfDay == 0 ? "a.m." : "p.m.")")
                             .font(.subheadline)
-                            .foregroundStyle(.red)
+                            .foregroundStyle(.blue)
                     }
                 }
                 

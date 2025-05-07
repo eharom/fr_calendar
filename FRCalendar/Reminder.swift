@@ -21,6 +21,7 @@ import SwiftData
     var repetitionEnd: String
     var timesRepeated: Int
     var endDate: FRDate
+    var show = false
 
     var isActive = false
 

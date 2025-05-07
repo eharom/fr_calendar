@@ -28,6 +28,7 @@ struct MonthGridView: View {
                 DayCalendarView(viewModel: viewModel, day: month.days[i])
                     .onTapGesture {
                         viewModel.selectedDate.day = i + 1
+                        viewModel.updatePickerDates()
                         print(month.days[i].date)
                     }
             }

@@ -15,13 +15,15 @@ struct MiniMonthView: View {
     
     var body: some View {
         VStack(spacing: 0.0) {
-            HStack {
-                Text(viewModel.months[monthIndex - 1].shortName)
-                    .foregroundStyle((viewModel.selectedDate.year == viewModel.currentDate.year && viewModel.currentDate.month == monthIndex) ? .red : colorScheme == .light ? .black : .white)
+            HStack(alignment: .top) {
+                Text(viewModel.months[monthIndex - 1].name.prefix(4))
+                    .foregroundStyle((viewModel.selectedDate.year == viewModel.currentDate.year && viewModel.currentDate.month == monthIndex) ? .blue : colorScheme == .light ? .black : .white)
                     .font(.title3)
                     .bold()
                     .padding(.bottom, UIDevice.smallScreen ? 0.0 : 5.0)
                 Spacer()
+                Image(systemName: viewModel.months[monthIndex - 1].seasonLogo)
+                    .font(.system(size: 18.0))
             }
             ForEach(0..<6) { row in
                 HStack {
@@ -29,7 +31,7 @@ struct MiniMonthView: View {
                         let index = row * 5 + col
                         ZStack {
                             Circle()
-                                .foregroundStyle(viewModel.currentDate == FRDate(viewModel.selectedDate.year, monthIndex, index) ? .red : .clear)
+                                .foregroundStyle(viewModel.currentDate == FRDate(viewModel.selectedDate.year, monthIndex, index) ? .blue : .clear)
                             Text("\(index)")
                                 .foregroundStyle(colorScheme == .light ? .black : .white)
                                 .font(.system(size: 10))

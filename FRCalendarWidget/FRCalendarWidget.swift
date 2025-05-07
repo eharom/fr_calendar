@@ -51,7 +51,7 @@ struct FRCalendarWidgetEntryView : View {
         VStack(spacing: 0.0) {
             Text("\(frDate.monthName)")
                 .font(.system(size: 25.0, weight: .semibold, design: .default))
-                .foregroundStyle(.red)
+                .foregroundStyle(.blue)
             Text("\(frDate.day)")
                 .font(.system(size: 90.0
                               , weight: .semibold, design: .rounded))
@@ -78,7 +78,7 @@ struct MonthGridWidgetEntryView : View {
             HStack {
                 Text(frDate.monthName.uppercased())
                     .font(.system(size: 14.0, weight: .semibold))
-                    .foregroundStyle(.red)
+                    .foregroundStyle(.blue)
                 Spacer()
                 Text("\(frDate.celebration)".uppercased())
                     .font(.system(size: 13.0, weight: .semibold))
@@ -93,7 +93,7 @@ struct MonthGridWidgetEntryView : View {
                         let isCurrentDate = frDate == FRDate(frDate.year, frDate.month, index)
                         ZStack {
                             Circle()
-                                .foregroundStyle(isCurrentDate ? .red : .clear)
+                                .foregroundStyle(isCurrentDate ? .blue : .clear)
                             Text("\(index)")
                                 .foregroundStyle(isCurrentDate ? .white : index % 5 == 0 ? .gray : colorScheme == .light ? .black : .white)
                                 .font(.system(size: 12.0, weight: .semibold))

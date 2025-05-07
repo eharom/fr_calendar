@@ -45,6 +45,25 @@ struct Month: Identifiable {
         default: "\(monthIndex)"
         }
     }
+    var season: String {
+        switch monthIndex {
+        case 1...3: "Autumn"
+        case 4...6: "Winter"
+        case 7...9: "Spring"
+        case 10...12: "Summer"
+        default: "\(monthIndex)"
+        }
+    }
+    
+    var seasonLogo: String {
+        switch monthIndex {
+        case 1...3: "leaf"
+        case 4...6: "snowflake"
+        case 7...9: "ladybug"
+        case 10...12: "sun.max.fill"
+        default: "\(monthIndex)"
+        }
+    }
     
 }
 

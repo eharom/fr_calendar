@@ -19,7 +19,7 @@ struct DayCalendarView: View {
             return .clear
         }
         if viewModel.selectedYearIsCurrentYear() && viewModel.dayAndMonthAreEqualToCurrentDay(day) {
-            return .red
+            return .blue
         } else {
             return colorScheme == .light ? .black : .white
         }
@@ -28,7 +28,7 @@ struct DayCalendarView: View {
     var textColor: Color {
         guard viewModel.dayAndMonthAreEqualToSelectedDay(day) else {
             if viewModel.selectedYearIsCurrentYear() && viewModel.dayAndMonthAreEqualToCurrentDay(day) {
-                return .red
+                return .blue
             }
             return day.date.day % 5 == 0 ? .gray : colorScheme == .light ? .black : .white
         }
@@ -48,12 +48,12 @@ struct DayCalendarView: View {
     
     var body: some View {
         VStack(spacing: 0.0) {
-            GrayDivider()
-//            Divider()
+//            GrayDivider()
+            Divider()
             ZStack {
                 Rectangle()
                     .aspectRatio(2/3, contentMode: .fit)
-                    .foregroundStyle(colorScheme == .light ? .white : .black)
+                    .foregroundStyle(Color.gray(colorScheme == .light ? 0.93 : 0.14 ))
                 VStack(spacing: 0.0) {
                     ZStack {
                         Circle()
