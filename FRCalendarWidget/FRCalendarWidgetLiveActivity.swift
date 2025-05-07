@@ -51,7 +51,7 @@ struct FRCalendarWidgetLiveActivity: Widget {
                 Text(context.state.emoji)
             }
             .widgetURL(URL(string: "http://www.apple.com"))
-            .keylineTint(Color.red)
+            .keylineTint(Color.blue)
         }
     }
 }

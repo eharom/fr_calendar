@@ -72,6 +72,7 @@ struct ConverterView: View {
                             viewModel.selectedDate = Date.from(string: "\(year)-\(month)-\(day)")!.toRepublican()
                         }
                         viewModel.isMonthView = true
+                        viewModel.showConverterView = false
                     }, label: {
                         Image(systemName: "arrowshape.right.circle.fill")
                             .foregroundStyle(colorScheme == .light ? .black : .white)

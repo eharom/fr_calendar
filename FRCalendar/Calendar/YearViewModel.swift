@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 class ViewModel: ObservableObject {
     @Published var showInfoView = false
@@ -19,10 +20,16 @@ class ViewModel: ObservableObject {
     @Published var isMonthView = false
     @Published var showRomanNumerals = true
     
+    @Published var pickerYearStart = 0
+    @Published var pickerMonthStart = 0
+    @Published var pickerDayStart = 0
+    
     let userDefaults = UserDefaults.standard
     let showGregorianKey = "showGregorian"
     let showRomanNumeralsKey = "showRomanNumerals"
-        
+    
+    @Query private var reminders: [Reminder]
+    
     var isLeapYear: Bool {
         Initializer.shared.leapYears.contains(selectedDate.year)
     }
@@ -52,18 +59,58 @@ class ViewModel: ObservableObject {
         if let showGregorian = userDefaults.object(forKey: showGregorianKey) as? Bool {
             self.showGregorian = showGregorian
         }
+        
+        updatePickerDates()
+
+    }
+    
+    func addMonthToSelectedMonth() {
+        if selectedDate.month == 13 {
+            if selectedDate.year < 334 {
+                selectedDate.month = 1
+                selectedDate.year += 1
+                selectedDate.day = 1
+            }
+        } else {
+            selectedDate.month += 1
+            selectedDate.day = 1
+        }
+    }
+    func removeMonthFromSelectedMonth() {
+        if selectedDate.month == 1 {
+            if selectedDate.year > 1 {
+                selectedDate.month = 13
+                selectedDate.year -= 1
+                selectedDate.day = 1
+            }
+        } else {
+            selectedDate.month -= 1
+            selectedDate.day = 1
+        }
+    }
+    func dateHasReminders(_ date: FRDate, _ reminders: [Reminder]) -> Bool {
+        for reminder in reminders {
+            if reminder.date == date {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func updatePickerDates() {
+        pickerYearStart = selectedDate.year
+        pickerMonthStart = selectedDate.month
+        pickerDayStart = selectedDate.day
     }
     
     func dayAndMonthAreEqualToCurrentDay(_ day: Day) -> Bool {
         day.date.day == currentDate.day &&
         day.date.month == currentDate.month
     }
-    
     func dayAndMonthAreEqualToSelectedDay(_ day: Day) -> Bool {
         day.date.day == selectedDate.day &&
         day.date.month == selectedDate.month
     }
-    
     func selectedYearIsCurrentYear() -> Bool {
         selectedDate.year == currentDate.year
     }

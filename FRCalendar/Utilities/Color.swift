@@ -18,4 +18,9 @@ extension Color {
     
     static let darkGray = Color(red: 0.10, green: 0.10, blue: 0.10)
     static let lightGray = Color(red: 0.96, green: 0.96, blue: 0.96)
+    static let mediumLightGray = Color(red: 0.90, green: 0.90, blue: 0.90)
+    
+    static let monthCellBackgroundColor = Color.gray(0.5)
+    
+    static func gray(_ value: CGFloat) -> Color { Color(UIColor(white: value, alpha: 1.0)) }
 }
